@@ -1,0 +1,7 @@
+node_modules/
+
+.env
+osuApiKey.txt
+
+src/cmds/osu.cjs
+src/cmds/buttonRole.cjs
