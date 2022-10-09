@@ -14,22 +14,22 @@ const commands = [];
 const commandFiles = fs.readdirSync('./src/cmds').filter(file => file.endsWith('.js'));
 
 for(const file of commandFiles) {
-	const command = require(`./cmds/${file}`);
-	commands.push(command.data.toJSON());
+  const command = require(`./cmds/${file}`);
+  commands.push(command.data.toJSON());
 }
 
 const rest = new REST({ version: "9" }).setToken(token);
 
 (async () => {
-	try {
-		console.log("Started refreshing application commands.");
+  try {
+    console.log("Started refreshing application commands.");
 
-		await rest.put(
-			Routes.applicationCommands(clientId),
-			{ body: commands },
+    await rest.put(
+      Routes.applicationCommands(clientId),
+      { body: commands },
 
-		);
-	} catch(error) {
-		console.error(error);
-	}
+    );
+  } catch(error) {
+    console.error(error);
+  }
 })();
