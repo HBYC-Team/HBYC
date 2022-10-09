@@ -8,9 +8,9 @@ Before you start using the bot, we recommend that you should read this documenta
 # Rules
 * 1.This bot is OPEN SOURCE, with GPL-3.0 License, but according to our additional licence, you CANNOT use for bussiness.
 
-* 2.DO NOT USE THE `say` or `echo` COMMAND TO SEND ILLEGAL MESSAGE, THE BOT OR OUR TEAM WILL NOT LIABILITY THE RESPONSIBILITY.
+* 2.DO NOT USE THE `/say` or `/echo` COMMAND TO SEND ILLEGAL MESSAGE, THE BOT OR OUR TEAM WILL NOT LIABILITY THE RESPONSIBILITY.
 
-* 3.DO NOT use `say` command try to BREAK Discord Team of Service, THE BOT OR OUR TEAM WILL NOT LIABILITY ANY RESPONSIBILITY.
+* 3.DO NOT use `/say` command try to BREAK Discord Team of Service, THE BOT OR OUR TEAM WILL NOT LIABILITY ANY RESPONSIBILITY.
 
 * 4.If you break the rules in this document, you may got banned by the bot.
 
