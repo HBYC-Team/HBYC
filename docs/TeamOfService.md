@@ -1,7 +1,7 @@
 # HBYC Team of Service - 2022-10-09 v2
 This Documentation is the Team of Service of HBYC Discord Bot.
 
-中文版[請見此](./TeamofService-Tw.md)
+中文版[請見此](./TeamOfService-Tw.md)
 
 Before you start using the bot, we recommend that you should read this documentation first.
 
