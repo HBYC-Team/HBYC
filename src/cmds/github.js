@@ -48,7 +48,7 @@ module.exports = {
       .setFooter({ text: 'Shard#1' });
 
     cmdHook.send({
-       embeds: [cmdHookEmbed]
+      embeds: [cmdHookEmbed]
     });
   }
 }
