@@ -1,8 +1,8 @@
 # HBYC
-![license](https://img.shields.io/github/license/dragonyc1002/HBYC?style=for-the-badge)
-![last_commit](https://img.shields.io/github/last-commit/dragonyc1002/HBYC?style=for-the-badge)
+![license](https://img.shields.io/github/license/HBYC-Team/HBYC?style=for-the-badge)
+![last_commit](https://img.shields.io/github/last-commit/HBYC-Team/HBYC?style=for-the-badge)
 ![Discord](https://img.shields.io/discord/977204156043509780?style=for-the-badge)
-[![EMU800!!!](./public/images/banner-EMU800.jpeg)](https://reurl.cc/GxQqdy)
+[![EMU800!!!](../public/images/banner-20221009.jpg)](https://reurl.cc/GxQqdy)
 一隻用 JavaScript 寫出來的 Discord 機器人。
 
 
