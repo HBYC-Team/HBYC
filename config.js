@@ -26,7 +26,6 @@ module.exports = {
     id: process.env.msgHookId,
     token: process.env.msgHookToken
   },
-
   botHook: {
     id: process.env.botHookId,
     token: process.env.botHookToken
