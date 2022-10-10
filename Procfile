@@ -1,1 +1,1 @@
-worker: node src/js/app.js
+worker: node src/app.js
