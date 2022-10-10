@@ -1,0 +1,30 @@
+{
+	"bot": {
+		"name": "HBYC",
+		"version": "v3.0.0",
+		"releaseDate": "2022-10-10",
+		"invite": "https://discord.com/api/oauth2/authorize?client_id=977024737156931675&permissions=1644971949559&scope=bot%20applications.commands"
+	},
+	"links": {
+		"organization": "https://github.com/HBYC-Team/",
+		"source": "https://github.com/HBYC-Team/HBYC",
+		"old_source": "https://github.com/HBYC-Team/HBYC-old",
+		"changeLog": "https://github.com/HBYC-Team/HBYC/tree/master/CHANGELOG.md",
+		"tos_en": "https://github.com/HBYC-Team/HBYC/tree/master/docs/TeamofService.md",
+		"tos_zh": "https://githubc.om/HBYC-Team/HBYC/tree/master/docs/TeamofService-Tw.md",
+		"disclaimer": "https://github.com/HBYC-Team/tree/master/docs/disclaimer",
+		"discordTw": "https://discordservers.tw/bots/977024737156931675/"
+	},
+	"supportGuild": {
+		"name": "HBYC Support",
+		"id": "977204156043509780",
+		"invite": "https://discord.gg/J7X2nWXszp",
+		"reportChannelId": "977410935947952138"
+	},
+	"devTeam": {
+		"members": "恐龍#2549, xi #3249,  魔方玩家Rubik's Cube Player#0956",
+		"programTeam": "恐龍#2549, xi #3249",
+		"internetTeam": "恐龍#2549",
+		"artTeam": "恐龍#2549, 魔方玩家Rubik's Cube Player#0956"
+	}
+}
