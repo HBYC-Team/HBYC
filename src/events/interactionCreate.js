@@ -23,6 +23,16 @@ module.exports = {
     try {
       await command.execute(interaction);
     } catch(error){
+      if(error.message === 'Missing Permissions'){
+        await interaction.channel.send('給我這些權限根本就不夠正常使用啊 ...');
+        return;
+      }
+
+      if(error.message === 'Duplicated ids are not allowed.'){
+        await interaction.channel.send('我要把你沒朋友的事實公諸於世，沒人陪你玩遊戲哈哈哈')
+        return;
+      }
+      
       await interaction.user.send(errors.interactionErr);
 
       const errHookEmbed = new EmbedBuilder()
