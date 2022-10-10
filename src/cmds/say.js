@@ -22,8 +22,8 @@ module.exports = {
   async execute(interaction) {
     const content = interaction.options.getString("訊息內容"); 
 
-    if(content === '@everyone' || content === 'here'){
-      await interaction.reply({ content: '還想 @everone 啊，你是吃了熊心豹子膽嗎？', ephemeral: true });
+    if(content === '@everyone' || content === '@here'){
+      await interaction.reply({ content: '還想 everyone 啊，你是吃了熊心豹子膽嗎？', ephemeral: true });
       return;
     }
     
