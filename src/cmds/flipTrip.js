@@ -2,7 +2,7 @@ const { SlashCommandBuilder } = require('@discordjs/builders');
 const { EmbedBuilder, WebhookClient } = require('discord.js');
 const { DjsFlipTrip } = require('@hizollo/games');
 const { flipTrip } = require('../data/GameStrings.json');
-const config = reuire('../../config');
+const config = require('../../config');
 
 const cmdHook = new WebhookClient({
   id: config.cmdHook.id,

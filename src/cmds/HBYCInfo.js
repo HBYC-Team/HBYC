@@ -1,15 +1,11 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
 const { EmbedBuilder, WebhookClient } = require("discord.js");
 const moment = require("moment");
-
-require("dotenv").config({ path: "src/js/"});
-
-const cmdHookId = process.env.cmdHookId;
-const cmdHookToken = process.env.cmdHookToken;
+const config = require('../../config');
 
 const cmdHook = new WebhookClient({
-  id: cmdHookId,
-  token: cmdHookToken
+  id: config.cmdHook.id,
+  token: config.cmdHook.token
 });
 
 const HBYCInfoData = new SlashCommandBuilder()
