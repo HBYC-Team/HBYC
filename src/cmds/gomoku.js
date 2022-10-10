@@ -44,6 +44,11 @@ module.exports = {
     const p2 = interaction.options.getUser("p2");
     const p3 = interaction.options.getUser("p3");
 
+    if(user.id === (p2.id || p3.id)){
+      await interaction.reply({ content: "可惜你沒朋友，只能跟自己玩，沒人陪你哈哈哈，那乾脆不要玩啦！", ephemeral: true });
+      return;
+    }
+
     const players = [{
       username: user.username,
       id: user.id,
