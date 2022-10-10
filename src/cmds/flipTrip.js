@@ -1,16 +1,12 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { EmbedBuilder, WebhookClient } = require('discord.js');
 const { DjsFlipTrip } = require('@hizollo/games');
-const { flipTrip } = require('../GameStrings.json');
-
-require('dotenv').config();
-
-const cmdHookId = process.env.cmdHookId;
-const cmdHookToken = process.env.cmdHookToken;
+const { flipTrip } = require('../data/GameStrings.json');
+const config = reuire('../../config');
 
 const cmdHook = new WebhookClient({
-  id: cmdHookId,
-  token: cmdHookToken
+  id: config.cmdHook.id,
+  token: config.cmdHook.token
 });
 
 const flipTripData = new SlashCommandBuilder()

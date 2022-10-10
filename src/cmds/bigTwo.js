@@ -1,16 +1,12 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { EmbedBuilder, WebhookClient } = require('discord.js');
 const { DjsBigTwo } = require('@hizollo/games');
-const { bigTwo } = require('../GameStrings.json');
-
-require('dotenv').config();
-
-const cmdHookId = process.env.cmdHookId;
-const cmdHookToken = process.env.cmdHookToken;
+const { bigTwo } = require('../data/GameStrings.json');
+const config = require('../../config');
 
 const cmdHook = new WebhookClient({
-  id: cmdHookId,
-  token: cmdHookToken
+  id: config.cmdHook.id,
+  token: config.cmdHook.token
 });
 
 const bigTwoData = new SlashCommandBuilder()
@@ -40,6 +36,11 @@ module.exports = {
 
     if(p2.bot || p3.bot || p4.bot){
       await interaction.reply({ content: "機器人們不會玩大老二啦，他們都太爛了", ephemeral: true });
+      return;
+    }
+
+    if(pi.id === (p2.id || p3.id || p4.id)){
+      await interaction.reply({ content: "可惜你沒朋友，只能跟自己玩，沒人陪你哈哈哈，那乾脆不要玩啦！", ephemeral: true });
       return;
     }
 

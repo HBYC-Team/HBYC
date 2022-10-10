@@ -1,14 +1,10 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { EmbedBuilder, WebhookClient } = require('discord.js');
-
-require('dotenv').config();
-
-const cmdHookId = process.env.cmdHookId;
-const cmdHookToken = process.env.cmdHookToken;
+const config = require('../../config');
 
 const cmdHook = new WebhookClient({
-  id: cmdHookId,
-  token: cmdHookToken
+  id: config.cmdHook.id,
+  token: config.cmdHook.token
 });
 
 const avatarData = new SlashCommandBuilder()
@@ -34,9 +30,9 @@ module.exports = {
 
     const description = (() => {
       if(member === interaction.user){
-        return `<@!${interaction.user.id}>，以下是你的頭像：`;
+        return `<@${interaction.user.id}> ，以下是你的頭像：`;
       } else {
-        return `<@!${interaction.user.id}>，這是你要查看的頭像：\n ${member.tag}的頭像`;
+        return `<@${interaction.user.id}> ，這是你要查看的頭像：\n ${member.tag} 的頭像`;
       }
     })();
 

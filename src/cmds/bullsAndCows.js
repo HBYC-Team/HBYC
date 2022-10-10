@@ -1,21 +1,17 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { EmbedBuilder, WebhookClient } = require('discord.js')
 const { DjsBullsAndCows } = require('@hizollo/games');
-const { bullsAndCows } = require('../GameStrings.json');
-
-require('dotenv').config();
-
-const cmdHookId = process.env.cmdHookId;
-const cmdHookToken = process.env.cmdHookToken;
+const { bullsAndCows } = require('../data/GameStrings.json');
+const config = require('../../config');
 
 const cmdHook = new WebhookClient({
-    id: cmdHookId,
-    token: cmdHookToken
+    id: config.cmdHook.id,
+    token: config.cmdHook.token
 });
 
 const bullsAndCowsData = new SlashCommandBuilder()
     .setName("bullsandcows")
-    .setDescription("遊玩一場猜AB遊戲！")
+    .setDescription("遊玩一場猜 AB 遊戲！")
     .addStringOption(option =>
         option.setName("難度")
         .setDescription("遊戲難度")

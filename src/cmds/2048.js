@@ -1,16 +1,12 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { EmbedBuilder, WebhookClient } = require('discord.js')
 const { DjsTofe } = require('@hizollo/games');
-const { tofe } = require('../GameStrings.json');
-
-require('dotenv').config();
-
-const cmdHookId = process.env.cmdHookId;
-const cmdHookToken = process.env.cmdHookToken;
+const { tofe } = require('../data/GameStrings.json');
+const config = require('../../config');
 
 const cmdHook = new WebhookClient({
-  id: cmdHookId,
-  token: cmdHookToken
+  id: config.cmdHook.id,
+  token: config.cmdHook.token
 });
 
 const tofeData = new SlashCommandBuilder()
