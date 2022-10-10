@@ -25,7 +25,7 @@ const reportData = new SlashCommandBuilder()
       .setDescription("回報內容")
       .setRequired(true)
   );
-
+  
 
 module.exports = {
   data: reportData,
