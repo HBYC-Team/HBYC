@@ -1,0 +1,240 @@
+{
+  "bigTwo": {
+    "name": "大老二", 
+    "ranks": ["3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A", "2"], 
+    "suits": ["\\♣", "\\♦", "\\♥", "\\♠"], 
+    "player": {
+      "cards": "** 你的手牌 **: [<cards>]", 
+      "menu": "請選好你打算下一輪出的牌", 
+      "pass": "PASS", 
+      "play": "出牌", 
+      "selected": "** 你準備要出的牌 **: [<cards>] (<trick>)\n等輪到你的時候，按下出牌即可（在那之前皆可換要出的牌）", 
+      "played": "[<cards>] (<trick>) 打出去了", 
+      "passed": "你跳過了這一輪", 
+      "invalid": "[<cards>] 不符合現在出的牌型，請重新選牌:)", 
+      "notYourTurn": "那麼急幹嘛，根本就還沒輪到你", 
+      "noSelection": "你沒選牌要出什麼"
+    }, 
+    "previous": {
+      "play": "<player> 出了 **<trick>**.", 
+      "pass": "<player> 跳過了這一輪", 
+      "idle": "<player> 因閒置而跳過了這一輪"
+    },
+    "tricks": {
+      "none": "none", 
+      "single": "一張 <card>", 
+      "pair": "一對 <rank>", 
+      "straight": "<rank>", 
+      "fullHouse": "<rank> 葫蘆", 
+      "fourOfAKind": "鐵支 <rank>", 
+      "straightFlush": "同花順 <rank>"
+    }, 
+    "hbar": "———————————————————", 
+    "nowPlayer": "現在輪到 <player> 了", 
+    "cardsOnTable": "** 上一家出的牌 **: [<cards>]", 
+    "cardsLeft": "<player>: 還有 <number> 張牌", 
+    "openCards": "<player>: [<cards>]", 
+    "playerLeft": "<player> 退出了遊戲", 
+    "controller": {
+      "cards": "查看手牌", 
+      "leave": "退出遊戲"
+    },
+    "endMessages": {
+      "win": "<player> 恭喜你贏了~",
+      "idle": "遊戲因閒置過久而自動結束",
+      "stopped": "遊戲因玩家要求而結束",
+      "deleted": "等等 遊戲的那則訊息去哪了？？",
+      "gameStats": {
+        "header": "遊戲結果 - <game>",
+        "message": "** 總花費時間 **: <min>:<sec>\n** 總共出牌次數 **: <step>"
+      },
+      "playerStats": {
+        "message": "** 花費時間 **: <min>:<sec>\n** 出牌次數 **: <step>"
+      }
+    }
+  },
+  "bullsAndCows": {
+    "name": "1A2B",
+    "initial": "<player> ，請猜一個四個數字不相同的四位數",
+    "query": "`<query>` 的結果為 `<a>A<b>B`",
+    "playerLeft": "<player> 結束了此遊戲", 
+    "controller": {
+      "leave": "結束遊戲"
+    },
+    "endMessages": {
+      "win": "<player> 恭喜你猜中答案 `<answer>` 了!",
+      "idle": "遊戲因閒置過久而自動結束",
+      "stopped": "遊戲因玩家要求而自動結束",
+      "deleted": "等等 遊戲的那則訊息去哪了？？",
+      "gameStats": {
+        "header": "遊戲結果 - <game>",
+        "message": "** 總花費時間 **: <min>:<sec>\n** 總猜測次數 **: <step>"
+      },
+      "playerStats": {
+        "message": "** 花費時間 **: <min>:<sec>\n** 猜測次數 **: <step>"
+      }
+    }
+  },
+  "finalCode": {
+    "name": "終極密碼",
+    "previous": {
+      "tooSmall": "<query> 太小了!",
+      "tooLarge": "<query> 太大了!!", 
+      "idle": "<player> 因閒置而跳過此輪"
+    },
+    "interval": "終極密碼介於 <min> 與 <max> 之間",
+    "nowPlayer": "現在輪到 <player> 了",
+    "playerLeft": "<player> 退出了遊戲", 
+    "controller": {
+      "leave": "退出遊戲"
+    },
+    "endMessages": {
+      "win": "<player> 你猜到終極密碼 <answer> 了!",
+      "idle": "遊戲因閒置過久而自動結束",
+      "stopped": "遊戲依玩家要求而結束",
+      "deleted": "等等 遊戲的那則訊息去哪了？？",
+      "gameStats": {
+        "header": "遊戲結果 - <game>",
+        "message": "** 總花費時間 **: <min>:<sec>\n** 總猜測次數 **: <step>"
+      },
+      "playerStats": {
+        "message": "** 花費時間 **: <min>:<sec>\n** 猜測次數 **: <step>"
+      }
+    }
+  },
+  "flipTrip": {
+    "name": "Flip Trip",
+    "numbers": ["1️⃣", "2️⃣", "3️⃣", "4️⃣", "5️⃣", "6️⃣", "7️⃣", "8️⃣", "9️⃣", "🔟"],
+    "pieces": ["⚪", "⚫"],
+    "playerLeft": "<player> 要求結束遊戲", 
+    "controller": {
+      "leave": "結束遊戲"
+    },
+    "endMessages": {
+      "win": "<player> 你猜出所有組合了！",
+      "lose": "<player>， `<state>` 這個組合已經出現過了！ 只剩下 <perm> 種組合你就能獲勝了，再試試吧！",
+      "idle": "遊戲因閒置過久而自動結束",
+      "stopped": "遊戲依玩家要求而結束",
+      "deleted": "等等 遊戲的那則訊息去哪了？？",
+      "gameStats": {
+        "header": "遊戲結果 - <game>",
+        "message": "** 總花費時間 **: <min>:<sec>\n** 總移動步數 **: <step>"
+      },
+      "playerStats": {
+        "message": "** 花費時間 **: <min>:<sec>\n** 移動步數 **: <step>"
+      }
+    }
+  },
+  "gomoku": {
+    "name": "五子棋",
+    "rows": ["1️⃣", "2️⃣", "3️⃣", "4️⃣", "5️⃣", "6️⃣", "7️⃣", "8️⃣", "9️⃣", "🔟"],
+    "columns": ["🇦", "🇧", "🇨", "🇩", "🇪", "🇫", "🇬", "🇭", "🇮", "🇯"],
+    "grid": "🔲",
+    "corner": "🔹",
+    "previous": {
+      "move": "上一輪 <player> 將棋子下在 `<col><row>` 的位置",
+      "idle": "<player> 因閒置而跳過此輪"
+    },
+    "nowPlayer": "現在輪到 <player> 了 (<symbol>).",
+    "playerLeft": "<player> 退出了遊戲", 
+    "controller": {
+      "leave": "退出遊戲"
+    },
+    "endMessages": {
+      "win": "恭喜 <player> 在五子棋中脫穎而出！",
+      "draw": "本盤棋以平局結束，看來兩位都勢均力敵呢",
+      "idle": "遊戲因閒置過久而自動結束",
+      "stopped": "遊戲依玩家要求而結束",
+      "deleted": "等等 遊戲的那則訊息去哪了？？",
+      "gameStats": {
+        "header": "遊戲結果 - <game>",
+        "message": "** 總花費時間 **: <min>:<sec>\n** 總下棋次數 **: <step>"
+      },
+      "playerStats": {
+        "message": "** 花費時間 **: <min>:<sec>\n** 下棋次數 **: <step>"
+      }
+    }
+  },
+  "lightsUp": {
+    "name": "Lights-up",
+    "answerSymbols": ["🔴", "🟡"],
+    "currentAnswer": "The answer to the board is: \n<answer>",
+    "playerLeft": "<player> has left the game.", 
+    "controller": {
+      "answer": "Answer",
+      "leave": "Leave"
+    },
+    "endMessages": {
+      "jackpot": "JACKPOT! All bulbs are lighted up in the first place!",
+      "win": "Congrats, <player>! You lighted up all bulbs!",
+      "unansweredWin": "Congrats, <player>! You lighted up all bulbs without checking the answer!",
+      "idle": "The game has been stopped because of idleness.",
+      "stopped": "遊戲依玩家要求而結束",
+      "deleted": "等等 遊戲的那則訊息去哪了？？",
+      "gameStats": {
+        "header": "Game Stats - <game>",
+        "message": "**Total Time**: <min>:<sec>\n**Total Attempt(s)**: <step>"
+      },
+      "playerStats": {
+        "message": "**Time**: <min>:<sec>\n**Attempt(s)**: <step>"
+      }
+    }
+  },
+  "ticTacToe": {
+    "name": "圈圈叉叉",
+    "labels": [
+      ["\u200b", "\u200b", "\u200b", "\u200b"],
+      ["\u200b", "\u200b", "\u200b", "\u200b"],
+      ["\u200b", "\u200b", "\u200b", "\u200b"],
+      ["\u200b", "\u200b", "\u200b", "\u200b"]
+    ],
+    "previous": {
+      "idle": "<player> 因閒置而跳過此輪"
+    },
+    "nowPlayer": "現在輪到 <player> (<symbol>) 了",
+    "playerLeft": "<player> 退出了遊戲", 
+    "controller": {
+      "leave": "退出遊戲"
+    },
+    "endMessages": {
+      "win": "恭喜 <player> ! 你竟然贏了w",
+      "draw": "這場圈圈叉叉以平局結束，看來兩位都蠻強的嘛:)",
+      "idle": "遊戲因閒置過久而自動結束",
+      "stopped": "遊戲因玩家要求而結束",
+      "deleted": "等等 遊戲的那則訊息去哪了？？",
+      "gameStats": {
+        "header": "遊戲結果 - <game>",
+        "message": "** 總花費時間 **: <min>:<sec>\n** 總移動次數 **: <step>"
+      },
+      "playerStats": {
+        "message": "** 花費時間 **: <min>:<sec>\n** 移動次數 **: <step>"
+      }
+    }
+  },
+  "tofe": {
+    "name": "2048",
+    "playerLeft": "<player> 已要求結束遊戲", 
+    "score": "分數： <score>", 
+    "controller": {
+      "up": "⬆️", 
+      "down": "⬇️", 
+      "left": "⬅️", 
+      "right": "➡️", 
+      "leave": "結束遊戲"
+    },
+    "endMessages": {
+      "win": "<player> 沒想到你竟然能贏！",
+      "lose": "<player> 哈哈你果然還是太嫩了OUO",
+      "idle": "遊戲因閒置過久而自動結束",
+      "stopped": "遊戲依玩家要求而結束",
+      "deleted": "等等 遊戲的那則訊息呢",
+      "gameStats": {
+        "header": "遊戲結果 - <game>",
+        "message": "** 總花費時間 **: <min>:<sec>\n** 總移動次數 **: <step>"
+      },
+      "playerStats": {
+        "message": "** 花費時間 **: <min>:<sec>\n** 移動次數 **: <step>"
+      }
+    }
+  }
+}
