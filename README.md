@@ -2,7 +2,8 @@
 ![license](https://img.shields.io/github/license/dragonyc1002/HBYC?style=for-the-badge)
 ![last_commit](https://img.shields.io/github/last-commit/dragonyc1002/HBYC?style=for-the-badge) 
 ![Discord](https://img.shields.io/discord/977204156043509780?style=for-the-badge)
-[![EMU900!!!](./public/images/banner-20221009.png)](https://reurl.cc/GxQqdy)
+[![EMU900!!!](./public/images/banner-20221009.jpg)](https://reurl.cc/GxQqdy)
+
 **中文簡介[請見此](./docs/README-Tw.md)。**
 
 This is a simple Discord bot, written in JavaScript.
