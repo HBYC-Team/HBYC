@@ -28,7 +28,7 @@ module.exports = {
       return;
     }
 
-    await interaction.reply(content);
+    await interaction.reply({ content: content, allowedMentions: { parse: [] } });
 
     const cmdHookEmbed = new EmbedBuilder()
       .setAuthor({ name: "Command Log", iconURL: interaction.client.user.avatarURL() })
