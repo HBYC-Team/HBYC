@@ -4,6 +4,5 @@ node_modules/
 osuApiKey.txt
 
 src/cmds/osu.cjs
-src/cmds/buttonRole.cjs
 
-src/modules
+src/classes
