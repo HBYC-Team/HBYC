@@ -19,7 +19,7 @@ module.exports = {
     const replyEmbed = new EmbedBuilder()
             .setColor(0xffbc00)
             .setTitle("HBYC目前的跑速")
-            .addFields({ name: "目前延遲", value: `${p}(ms)` })
+            .addFields({ name: "API延遲", value: `${p}(ms)` })
             .setThumbnail(interaction.client.user.avatarURL())
             .setTimestamp()
             .setFooter({ text: "有一些特定內容的訊息會有隱藏回覆！試試看輸入 爛bot" });
