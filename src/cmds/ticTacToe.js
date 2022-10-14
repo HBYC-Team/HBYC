@@ -5,8 +5,8 @@ const { ticTacToe } = require('../data/GameStrings.json');
 const config = require('../../config');
 
 const cmdHook = new WebhookClient({
-id: config.cmdHook.id,
-token: config.cmdHook.token
+  id: config.cmdHook.id,
+  token: config.cmdHook.token
 });
 
 const ticTacToeData = new SlashCommandBuilder()
@@ -37,14 +37,14 @@ module.exports = {
     const p3 = interaction.options.getUser("對手2");
     const boardSize = interaction.options.getInteger("盤面大小");
 
+    async function duplicateIds(){
+      await interaction.reply({ content: "可惜你沒朋友，只能跟自己玩，沒人陪你哈哈哈，那乾脆不要玩啦！", ephemeral: true });
+      return;
+    }
+
     if(!(boardSize > 0 && boardSize <= 4)){
         await interaction.reply({ content: "你沒看到版面大小只能設定1至4之間嗎？眼睛瞎了？", ephemeral: true });
         return;
-    }
-
-    if(user.id === (p2.id || p3.id || p4.id)){
-      await interaction.reply({ content: "可惜你沒朋友，只能跟自己玩，沒人陪你哈哈哈，那乾脆不要玩啦！", ephemeral: true });
-      return;
     }
 
     const players = [{
@@ -58,12 +58,20 @@ module.exports = {
         symbol: "⭕",
     }];
 
+    if(user.id === p2.id){
+      duplicateIds();
+    }
+
     if(p3 !== null){
+      if(user.id === p3.id){
+        duplicateIds();
+      } else {
         players.push({
-            username: p3.name,
-            id: p3.id,
-            symbol: "🔺"
+          username: p3.name,
+          id: p3.id,
+          symbol: "🔺"
         });
+      }
     }
 
     const game = new DjsTicTacToe({
