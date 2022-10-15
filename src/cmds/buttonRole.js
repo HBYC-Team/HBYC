@@ -61,7 +61,7 @@ module.exports = {
       );
     
     await interaction.reply({ content: `已經建立 <@&${role.id}> 的按鈕身份組！`, ephemeral: true });
-    await interaction.channel.send({ content: `**請點擊以下按鈕取得身份組！**\n--\n<@&${role.id}>: ${roleDescription}`, components: [roleButton], allowedMentions: { parse: [] } });
+    await interaction.channel.send({ content: `**請點擊以下按鈕取得或移除身份組！**\n--\n<@&${role.id}> : ${roleDescription}`, components: [roleButton], allowedMentions: { parse: [] } });
 
     /***** Collecting Button Clicks *****/
     const fliter = bi => bi.member === ButtonInteraction.member;
