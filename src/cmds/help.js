@@ -42,8 +42,7 @@ module.exports = {
   data: helpData,
 
   async execute(interaction){
-
-        await interaction.reply(`<@!${interaction.user.id}> 指令協助文件在這裡呦:)\n${links.source}/tree/master/docs/help.md`)
+    await interaction.reply(`<@!${interaction.user.id}> 指令協助文件在這裡呦:)\n${links.source}/tree/master/docs/help.md`)
         /*const cmdName = interaction.options.getString("指令名稱");
 
         switch cmdName {
