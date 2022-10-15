@@ -27,18 +27,15 @@ module.exports = {
   data: infoData,
 
   async execute(interaction) {
-    const member = (() => {
-      if(interaction.options.getUser("使用者") === null){
-          return interaction.user;
-      } else {
-          return interaction.options.getUser("使用者");
-      }
-    })();
-
     if(interaction.options.getSubcommand() === "member"){
+      const getUser = interaction.options.getUser("使用者");
+      const member =  getUser ? getUser : interaction.user;
+
+      const bot = member.bot ? '是' : '否';
+
       const guildInfo = interaction.guild.members.cache.get(member.id);
 
-      const Status = (() => {
+      const status = (() => {
         if(guildInfo.presence?.status === "online") {
             return "🟢 在線";
         } else if(guildInfo.presence?.status === "dnd") {
@@ -50,14 +47,6 @@ module.exports = {
         }
       })();
 
-      const bot = (() => {
-        if(member.bot){
-            return "是";
-        } else {
-            return "否";
-        }
-      })();
-
       const memberEmbed = new EmbedBuilder()
           .setColor(0xb0ea6b)
           .setTitle(`${member.tag} 的資訊`)
@@ -66,7 +55,7 @@ module.exports = {
               { name: "於本伺服器的暱稱", value: guildInfo.nickname || "無", inline: false },
               { name: "ID", value: member.id, inline: false },
               { name: "是否為機器人", value: bot, inline: false },
-              { name: "狀態", value: Status },
+              { name: "狀態", value: status },
               { name: "加入伺服器時間", value: `<t:${~~(guildInfo.joinedTimestamp/1000)}>`, inline: false },
               { name: "帳號創立時間", value: `<t:${~~(member.createdTimestamp/1000)}>`, inline: false },
               { name: "擁有的身份組", value: `${guildInfo.roles.cache.filter(role => role.name !== '@everyone').map(roles => `${roles}`).join(', ')}` || "無", inline: false }
@@ -79,6 +68,7 @@ module.exports = {
 
     } else {
       const guild = interaction.guild;
+      
       const guildEmbed = new EmbedBuilder()
           .setColor(0x0090ff)
           .setTitle(`${guild.name} 的資訊`)
