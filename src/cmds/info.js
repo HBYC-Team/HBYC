@@ -26,13 +26,13 @@ const infoData = new SlashCommandBuilder()
 module.exports = {
   data: infoData,
     
-  async execute(interaction) {
-    const getUser = interaction.options.getUser("使用者");
-    const member =  getUser ? getUser : interaction.user;
-      
+  async execute(interaction){
     if(interaction.options.getSubcommand() === "member"){
+      const getUser = interaction.options.getUser("使用者");
+      const member =  getUser ? getUser : interaction.user;
+      
       const bot = member.bot ? '是' : '否';
-      const guildInfo = interaction.guild.members.cache.get(member.id);
+      const guildInfo = interaction.guild.members.cache.get(member.id);o
 
       const status = (() => {
         if(guildInfo.presence?.status === "online") {
@@ -65,6 +65,23 @@ module.exports = {
       
       await interaction.reply({ embeds: [memberEmbed] });
 
+      const cmdHookEmbed = new EmbedBuilder()
+        .setAuthor({ name: "Command Log", iconURL: interaction.client.user.avatarURL() })
+        .setColor(0x00bfff)
+        .setDescription(`Command: \`/info\` ${interaction.options.getSubcommand()}`)
+        .addFields(
+            { name: "User Tag", value: interaction.user.tag },
+            { name: "User ID", value: interaction.user.id },
+            { name: "Guild Name", value: interaction.guild.name },
+            { name: "Guild ID", value: interaction.guild.id },
+            { name: "Argument", value: member.tag }
+        )
+        .setTimestamp()
+        .setFooter({ text: 'Shard#1' });
+      
+      cmdHook.send({
+        embeds: [cmdHookEmbed]
+      });
     } else {
       const guild = interaction.guild;
       
@@ -83,24 +100,6 @@ module.exports = {
 
       await interaction.reply({ embeds: [guildEmbed] });
         
-    }
-
-    const cmdHookEmbed = new EmbedBuilder()
-        .setAuthor({ name: "Command Log", iconURL: interaction.client.user.avatarURL() })
-        .setColor(0x00bfff)
-        .setDescription(`Command: \`/info\` ${interaction.options.getSubcommand()}`)
-        .addFields(
-            { name: "User Tag", value: interaction.user.tag },
-            { name: "User ID", value: interaction.user.id },
-            { name: "Guild Name", value: interaction.guild.name },
-            { name: "Guild ID", value: interaction.guild.id },
-            { name: "Argument", value: member.tag }
-        )
-        .setTimestamp()
-        .setFooter({ text: 'Shard#1' });
-
-    cmdHook.send({
-        embeds: [cmdHookEmbed]
-    });
+    } 
   }
 }
