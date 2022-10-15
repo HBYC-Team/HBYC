@@ -19,14 +19,14 @@ module.exports = {
   async execute(interaction){
     const githubEmbed = new EmbedBuilder()
       .setColor(0x000000)
-      .setTitle("HBYC的Github相關資訊")
+      .setTitle("HBYC 的 Github 相關資訊")
       .addFields(
         { name: "目前版本", value: links.source },
         { name: "舊版本", value: links.old_source }
       )
       .setThumbnail(interaction.client.user.displayAvatarURL())
       .setTimestamp()
-      .setFooter({ text: "歡迎使用/report指令提供建議喔" })
+      .setFooter({ text: "歡迎使用 /report 指令提供建議喔" })
             
     await interaction.reply({ embeds: [githubEmbed] });
 

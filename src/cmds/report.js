@@ -70,7 +70,7 @@ module.exports = {
         { name: "回報內容", value: `\`${content}\`` }
       ) 
       .setTimestamp()
-      .setFooter({ text: "Shard#4"});
+      .setFooter({ text: "Shard#4" });
     
     reportHook.send({
       embeds: [reportHookEmbed]

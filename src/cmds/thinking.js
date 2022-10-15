@@ -44,7 +44,7 @@ module.exports = {
 		const type = interaction.options.getString("種類");
 
 		async function sendThink(thinkEmoji){
-			await interaction.reply({ content: `${thinkEmoji}已傳送`, ephemeral: true });
+			await interaction.reply({ content: `${thinkEmoji} 已傳送`, ephemeral: true });
 			await interaction.channel.send(thinkEmoji);
 		}
 

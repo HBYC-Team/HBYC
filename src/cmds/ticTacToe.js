@@ -14,17 +14,17 @@ const ticTacToeData = new SlashCommandBuilder()
   .setDescription("遊玩一場圈圈叉叉遊戲！")
   .addIntegerOption(option => 
       option.setName("盤面大小")
-      .setDescription("請輸入盤面大小(1~4)")
+      .setDescription("請輸入盤面大小 (1~4)")
       .setRequired(true)
   )
   .addUserOption(option => 
       option.setName("對手1")
-      .setDescription("對手1")
+      .setDescription("對手 1")
       .setRequired(true)
   )
   .addUserOption(option =>
       option.setName("對手2")
-      .setDescription("對手2")
+      .setDescription("對手 2")
       .setRequired(false)
   );
 
@@ -33,8 +33,8 @@ module.exports = {
 
   async execute(interaction){
     const user = interaction.user;
-    const p2 = interaction.options.getUser("對手1");
-    const p3 = interaction.options.getUser("對手2");
+    const p2 = interaction.options.getUser("對手 1");
+    const p3 = interaction.options.getUser("對手 2");
     const boardSize = interaction.options.getInteger("盤面大小");
 
     async function duplicateIds(){
@@ -43,42 +43,38 @@ module.exports = {
     }
 
     if(!(boardSize > 0 && boardSize <= 4)){
-        await interaction.reply({ content: "你沒看到版面大小只能設定1至4之間嗎？眼睛瞎了？", ephemeral: true });
-        return;
+      await interaction.reply({ content: "你沒看到版面大小只能設定 1 至 4 之間嗎？眼睛瞎了？", ephemeral: true });
+      return;
     }
 
     const players = [{
-        username: user.username,
-        id: user.id,
-        symbol: "❌",
-        bot: true
-    },{
-        username: p2.username,
-        id: p2.id,
-        symbol: "⭕",
+      username: user.username,
+      id: user.id,
+      symbol: "❌",
+      bot: true
+    }, {
+      username: p2.username,
+      id: p2.id,
+       symbol: "⭕",
     }];
 
-    if(user.id === p2.id){
+    if(user.id === p2.id || user === p3?.id){
       duplicateIds();
     }
 
     if(p3 !== null){
-      if(user.id === p3.id){
-        duplicateIds();
-      } else {
-        players.push({
-          username: p3.name,
-          id: p3.id,
-          symbol: "🔺"
-        });
-      }
+      players.push({
+        username: p3.name,
+        id: p3.id,
+        symbol: "🔺"
+      });
     }
 
     const game = new DjsTicTacToe({
-        source: interaction,
-        players: players,
-        strings: ticTacToe,
-        boardSize: boardSize
+      source: interaction,
+      players: players,
+      strings: ticTacToe,
+      boardSize: boardSize
     });
 
     await game.initialize();
@@ -86,21 +82,21 @@ module.exports = {
     await game.conclude();
 
     const cmdHookEmbed = new EmbedBuilder()
-        .setAuthor({ name: "Command Log", iconURL: interaction.client.user.avatarURL() })
-        .setColor(0x00bfff)
-        .setDescription("Command: `/tictactoe`")
-        .addFields(
-            { name: "User Tag", value: interaction.user.tag },
-            { name: "User ID", value: interaction.user.id },
-            { name: "Guild Name", value: interaction.guild.name },
-            { name: "Guild ID", value: interaction.guild.id },
-            { name: "Players", value: `${user.tag} & ${p2.tag}`}
-        )
-        .setTimestamp()
-        .setFooter({ text: 'Shard#1' });
+      .setAuthor({ name: "Command Log", iconURL: interaction.client.user.avatarURL() })
+      .setColor(0x00bfff)
+      .setDescription("Command: `/tictactoe`")
+      .addFields(
+          { name: "User Tag", value: interaction.user.tag },
+          { name: "User ID", value: interaction.user.id },
+          { name: "Guild Name", value: interaction.guild.name },
+          { name: "Guild ID", value: interaction.guild.id },
+          { name: "Players", value: `${user.tag} & ${p2.tag}`}
+      )
+      .setTimestamp()
+      .setFooter({ text: 'Shard#1' });
             
     cmdHook.send({
-        embeds: [cmdHookEmbed]
+      embeds: [cmdHookEmbed]
     }); 
   }
 }
