@@ -1,6 +1,5 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
 const { EmbedBuilder, WebhookClient } = require("discord.js");
-const moment = require("moment");
 const config = require('../../config');
 
 const cmdHook = new WebhookClient({
@@ -11,7 +10,6 @@ const cmdHook = new WebhookClient({
 const HBYCInfoData = new SlashCommandBuilder()
   .setName("hbycinfo")
   .setDescription("查看我的資訊");
-
 
 module.exports = {
   data: HBYCInfoData,
