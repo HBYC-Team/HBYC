@@ -28,7 +28,7 @@ module.exports = {
 			await message.author.send(`${errors.messageSendErr}，錯誤代碼如下:\`${error.message}\``);
 					
 			const errHookEmbed = new EmbedBuilder()
-				.setAuthor({ name: `Error Log - ${message.content}`, iconURL: interaction.client.user.avatarURL() })
+				.setAuthor({ name: `Error Log - ${message.content}`, iconURL: message.client.user.avatarURL() })
 				.setColor(0xff0000)
 				.addFields(
 					{ name: "Error Code", value: error.message },
@@ -57,7 +57,7 @@ module.exports = {
 				await message.channel.send(mentionReplyMsg);
 
 				const msgHookEmbed = new EmbedBuilder()
-						.setAuthor({ name: "Error Log", iconURL: interaction.client.user.avatarURL() })
+						.setAuthor({ name: "Error Log", iconURL: message.client.user.avatarURL() })
 						.setColor(0xcc00ff)
 						.addFields(
 							{ name: "User Tag", value: message.author.tag },
