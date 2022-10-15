@@ -25,12 +25,12 @@ const infoData = new SlashCommandBuilder()
 
 module.exports = {
   data: infoData,
-
+    
   async execute(interaction) {
+    const getUser = interaction.options.getUser("使用者");
+    const member =  getUser ? getUser : interaction.user;
+      
     if(interaction.options.getSubcommand() === "member"){
-      const getUser = interaction.options.getUser("使用者");
-      const member =  getUser ? getUser : interaction.user;
-
       const bot = member.bot ? '是' : '否';
 
       const guildInfo = interaction.guild.members.cache.get(member.id);
