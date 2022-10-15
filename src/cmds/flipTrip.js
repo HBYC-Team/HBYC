@@ -11,10 +11,10 @@ const cmdHook = new WebhookClient({
 
 const flipTripData = new SlashCommandBuilder()
   .setName("fliptrip")
-  .setDescription("開啟一場Flip trip遊戲")
+  .setDescription("來玩一場 Flip trip 遊戲！")
   .addIntegerOption(option =>
     option.setName("棋盤數")
-    .setDescription("棋盤數(1~10，1最簡單，10最困難)")
+    .setDescription("棋盤數 (1~10 ， 1 最簡單， 10 最困難 )")
     .setRequired(true)
   )
 
@@ -26,7 +26,7 @@ module.exports = {
     const size = interaction.options.getInteger("棋盤數");
 
     if(size > 10 || size < 1) {
-      await interaction.reply({ content: "你沒看到說明上面寫只能填1~10的整數嗎？", ephemeral: true });
+      await interaction.reply({ content: "你沒看到說明上面寫只能填 1~10 的整數嗎？", ephemeral: true });
       return;
     }
 

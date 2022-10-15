@@ -14,7 +14,7 @@ const gomokuData = new SlashCommandBuilder()
   .setDescription("進行一場五子棋遊戲")
   .addIntegerOption(option => 
     option.setName("棋盤大小")
-    .setDescription("棋盤的大小(1~19)")
+    .setDescription("棋盤的大小 ( 1~19 )")
     .setRequired(true)
   )
   .addUserOption(option => 
@@ -36,7 +36,7 @@ module.exports = {
     const boardSize = interaction.options.getInteger("棋盤大小");
 
     if(!(1 <= boardSize && boardSize <= 19 )){
-      await interaction.reply({ content: "看不到指令說明上面有寫只能填入1~19的整數嗎？你是業障重嗎？", ephemeral: true });
+      await interaction.reply({ content: "看不到指令說明上面有寫只能填入 1~19 的整數嗎？你是業障重嗎？", ephemeral: true });
       return;
     }
 
@@ -44,8 +44,13 @@ module.exports = {
     const p2 = interaction.options.getUser("p2");
     const p3 = interaction.options.getUser("p3");
 
-    if(user.id === (p2.id || p3.id)){
-      await interaction.reply({ content: "可惜你沒朋友，只能跟自己玩，沒人陪你哈哈哈，那乾脆不要玩啦！", ephemeral: true });
+    if(user.id === p2.id || user.id === p3?.id){
+      await interaction.reply({ content: "你也太悲慘了吧，只能自己跟自己玩喔，找個朋友陪你玩啦，不對，你肯定沒有朋友吧哈哈哈 ~~也許你可以開個小帳自己跟自己玩~~", ephemeral: true });
+      return;
+    }
+
+    if(p2.bot || p3?.bot){
+      await interaction.reply({ content: "機器人們不會玩五子棋，他們很爛吧，而我的 AI 功能還在訓練中呢～", ephemeral: true });
       return;
     }
 
@@ -65,16 +70,6 @@ module.exports = {
         id: p3.id,
         symbol: "🟢" 
       });
-    }
-
-    if(p2.bot || (p3 !== null && p3.bot)){
-      await interaction.reply({ content: "機器人們不會玩五子棋，他們很爛吧，而我的AI功能還在訓練中呢～", ephemeral: true });
-      return;
-    }
-
-    if(user.id === p2.id){
-      await interaction.reply({ content: "你也太悲慘了吧，只能自己跟自己玩喔，找個朋友陪你玩啦 ~~或是開個小帳自己跟自己玩~~", ephemeral: true });
-      return;
     }
 
     const game = new DjsGomoku({

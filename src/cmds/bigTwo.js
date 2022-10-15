@@ -39,7 +39,7 @@ module.exports = {
       return;
     }
 
-    if(user.id === (p2.id || p3.id || p4.id)){
+    if(user.id === p2.id || user.id === p3.id || user.id === p4.id){
       await interaction.reply({ content: "可惜你沒朋友，只能跟自己玩，沒人陪你哈哈哈，那乾脆不要玩啦！", ephemeral: true });
       return;
     }

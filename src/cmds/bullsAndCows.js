@@ -5,60 +5,54 @@ const { bullsAndCows } = require('../data/GameStrings.json');
 const config = require('../../config');
 
 const cmdHook = new WebhookClient({
-    id: config.cmdHook.id,
-    token: config.cmdHook.token
+  id: config.cmdHook.id,
+  token: config.cmdHook.token
 });
 
 const bullsAndCowsData = new SlashCommandBuilder()
-    .setName("bullsandcows")
-    .setDescription("遊玩一場猜 AB 遊戲！")
-    .addStringOption(option =>
-        option.setName("難度")
-        .setDescription("遊戲難度")
-        .setRequired(true)
+  .setName("bullsandcows")
+  .setDescription("遊玩一場猜 AB 遊戲！")
+  .addStringOption(option =>
+      option.setName("困難模式")
+        .setDescription("決定是否開啟困難模式，預設為關閉")
+        .setRequired(false)
         .addChoices(
-            { name: "簡單", value: '簡單模式' },
-            { name: "困難", value: '困難模式' },
-        ));
+         { name: "開啟", value: '開啟' }
+        )
+  );
 
 module.exports = {
     data: bullsAndCowsData,
 
     async execute(interaction) {
-        const hardMode = (() => {
-            if(interaction.options.getString("難度") === "簡單模式"){
-                return false;
-            } else {
-                return true;
-            }
-        })();
+      const hardMode = interaction.options.getString("困難模式") ? true : false;
 
-        const game = new DjsBullsAndCows({
-            source: interaction,
-            players: [interaction.user],
-            hardMode: hardMode,
-            strings: bullsAndCows
-        });
+      const game = new DjsBullsAndCows({
+        hardMode: hardMode,
+        source: interaction,
+        players: [interaction.user],
+        strings: bullsAndCows
+      });
 
-        await game.initialize();
-        await game.start();
-        await game.conclude();
+      await game.initialize();
+      await game.start();
+      await game.conclude();
 
-        const cmdHookEmbed = new EmbedBuilder()
-            .setAuthor({ name: "Command Log", iconURL: interaction.client.user.avatarURL() })
-            .setColor(0x00bfff)
-            .setDescription("Command: `/bullsandcows`")
-            .addFields(
-                { name: "User Tag", value: interaction.user.tag },
-                { name: "User ID", value: interaction.user.id },
-                { name: "Guild Name", value: interaction.guild.name },
-                { name: "Guild ID", value: interaction.guild.id }
-            )
-            .setTimestamp()
-            .setFooter({ text: 'Shard#1' });
+      const cmdHookEmbed = new EmbedBuilder()
+          .setAuthor({ name: "Command Log", iconURL: interaction.client.user.avatarURL() })
+          .setColor(0x00bfff)
+          .setDescription("Command: `/bullsandcows`")
+          .addFields(
+              { name: "User Tag", value: interaction.user.tag },
+              { name: "User ID", value: interaction.user.id },
+              { name: "Guild Name", value: interaction.guild.name },
+              { name: "Guild ID", value: interaction.guild.id }
+          )
+          .setTimestamp()
+          .setFooter({ text: 'Shard#1' });
 
-        cmdHook.send({
-            embeds: [cmdHookEmbed]
-        }); 
-    }
+      cmdHook.send({
+          embeds: [cmdHookEmbed]
+      }); 
+  }
 }

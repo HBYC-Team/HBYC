@@ -20,21 +20,9 @@ module.exports = {
   data: avatarData,
   
   async execute(interaction){
-    const member = (() => {
-      if(interaction.options.getUser("用戶名稱") === null){
-        return interaction.user;
-      } else {
-        return interaction.options.getUser("用戶名稱");
-      };
-    })();
-
-    const description = (() => {
-      if(member === interaction.user){
-        return `<@${interaction.user.id}> ，以下是你的頭像：`;
-      } else {
-        return `<@${interaction.user.id}> ，這是你要查看的頭像：\n ${member.tag} 的頭像`;
-      }
-    })();
+    const getUser = interaction.options.getString('用戶名稱');
+    const member =  getUser ? getUser : interaction.user; 
+    const description = getUser ? `<@${interaction.user.id}> ，這是你要查看的頭像：\n ${member.tag} 的頭像` : `<@${interaction.user.id}> ，以下是你的頭像：`;
 
     const avatar = member.displayAvatarURL({ format: "png", size: 1024 });
     

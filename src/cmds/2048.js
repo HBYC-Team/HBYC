@@ -11,14 +11,13 @@ const cmdHook = new WebhookClient({
 
 const tofeData = new SlashCommandBuilder()
   .setName("2048")
-  .setDescription("開始一場2048遊戲")
+  .setDescription("開始一場 2048 遊戲")
   .addStringOption(option => 
-    option.setName("難度")
-      .setDescription("遊戲的難度")
-      .setRequired(true)
+    option.setName("困難模式")
+      .setDescription("決定是否開啟困難模式，預設為關閉")
+      .setRequired(false)
       .addChoices(
-        { name: "簡單", value: '簡單模式' },
-        { name: "困難", value: '困難模式' },
+        { name: "開啟", value: '開啟' }
       )
   );
 
@@ -28,13 +27,7 @@ module.exports = {
   data: tofeData,
   
   async execute(interaction) {
-    const hardMode = (() => {
-      if(interaction.options.getString("難度") === "簡單模式"){
-        return false;
-      } else {
-        return true;
-      }
-    })();
+    const hardMode = interaction.options.getString("困難模式") ? true : false;
 
     const game = new DjsTofe({
       hardMode: hardMode,
