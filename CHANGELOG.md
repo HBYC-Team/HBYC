@@ -1,14 +1,46 @@
-# CHANGELOG
+# HBYC Changelog
 This documentation is a changelog of this repository.
+
+## v3.1.0
+Release Date: 2022-10-16
+
+### Features
+* Added `/buttonrole` command. ([buttonRole.js](./src/cmds/buttonRole.js)) (f1a1e4b)
+
+* Added `/osu userinfo` command. ([osu.js](./src/cmds/osu.js)) (96089f0)
+
+* Added osu!api config property. ([config.js](./config.js)) (568c4c1)
+
+### Changes
+* Changed few content in [LICENSE](./LICENSE). (d1ead18)
+
+* Changed few content in `errHookEmbed`. ([interactionCreate.js](./src/events/interactionCreate.js)) (071c725)
+
+* Changed few content in webhook embeds. ([messageCreate.js](./src/events/messageCreate.js)) (4580c04)
+
+* Changed reply content on `/ping` command. ([ping.js](./src/cmds/ping.js)) (b39b8f2)
+
+* REST API has changed to v10. ([deploy.js](./src/deploy.js)) (e0fada4)
+
+### Fixes
+* Fixed wrong typing. ([ticTacToe.js](./src/cmds/ticTacToe.js)) (d4de018)
+
+* Fixed `/say` and `/echo` command that still can do mentions. ([say.js](./src/cmds/say.js) / [echo.js](./src/cmds/echo.js)) (c19fe2d)
+
+### Refactors
+* Refactored some constants with ternary operator. (3ab5cbd)
+
+### Others
+* Convert Changelog to new format.
 
 ## v3.0.0 - [Moves]
 * MOVED THE FILE IN THE BOT TO NEW REPOSITORY AND REWRITE.
 
-* Added new member information. ([constants.json](./src/constants.json))(fc23770)(eae62c0)(7150781)
+* Added new member information. ([constants.json](./src/constants.json))
 
-* Changed some method. ([report.js](./src/js/cmds/report.js))(9ec2766)
+* Changed some method. ([report.js](./src/js/cmds/report.js))
 
-* Changed some content. ([announcement.js](./src/js/cmds/announcement.js)(f129c10)
+* Changed some content. ([announcement.js](./src/js/cmds/announcement.js)
 
 * Changed package manager to yarn.
 
