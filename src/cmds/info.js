@@ -73,7 +73,7 @@ module.exports = {
           )
           .setThumbnail(member.avatarURL())
           .setTimestamp()
-          .setFooter({ text: "HBYC，一個神奇的Discord機器人" });
+          .setFooter({ text: "HBYC ，一個神奇的 Discord 機器人" });
       
       await interaction.reply({ embeds: [memberEmbed] });
 
@@ -85,12 +85,12 @@ module.exports = {
           .addFields(
               { name: "伺服器ID", value: guild.id, inline: false },
               { name: "成員數量", value: `${guild.memberCount}`, inline: false },
-              { name: "擁有者", value: `<@!${guild.ownerId}>`, inline: false },
+              { name: "擁有者", value: `<@${guild.ownerId}>`, inline: false },
               { name: "創立日期", value: `<t:${~~(guild.createdTimestamp/1000)}>`, inline: false }
           )
           .setThumbnail(guild.iconURL())
           .setTimestamp()
-          .setFooter({ text: "HBYC，一個神奇的Discord機器人" });
+          .setFooter({ text: "HBYC ，一個神奇的 Discord 機器人" });
 
       await interaction.reply({ embeds: [guildEmbed] });
         
