@@ -57,7 +57,7 @@ module.exports = {
 				await message.channel.send(mentionReplyMsg);
 
 				const msgHookEmbed = new EmbedBuilder()
-						.setAuthor({ name: "Error Log", iconURL: message.client.user.avatarURL() })
+						.setAuthor({ name: `Message Log - ${message.content}`, iconURL: message.client.user.avatarURL() })
 						.setColor(0xcc00ff)
 						.addFields(
 							{ name: "User Tag", value: message.author.tag },
