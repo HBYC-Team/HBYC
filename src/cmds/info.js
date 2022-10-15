@@ -32,7 +32,6 @@ module.exports = {
       
     if(interaction.options.getSubcommand() === "member"){
       const bot = member.bot ? '是' : '否';
-
       const guildInfo = interaction.guild.members.cache.get(member.id);
 
       const status = (() => {
