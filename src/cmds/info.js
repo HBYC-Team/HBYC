@@ -32,7 +32,7 @@ module.exports = {
       const member =  getUser ? getUser : interaction.user;
       
       const bot = member.bot ? '是' : '否';
-      const guildInfo = interaction.guild.members.cache.get(member.id);o
+      const guildInfo = interaction.guild.members.cache.get(member.id);
 
       const status = (() => {
         if(guildInfo.presence?.status === "online") {
