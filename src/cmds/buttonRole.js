@@ -33,7 +33,7 @@ const buttonRoleData = new SlashCommandBuilder()
 module.exports = {
   data: buttonRoleData,
 
-  async execute(interaction, ButtonInteraction){
+  async execute(interaction){
     const role = interaction.options.getRole("身份組");
     //const emoji = interaction.options.getString("表情符號");
     const roleDescription = interaction.options.getString("介紹");
@@ -54,7 +54,7 @@ module.exports = {
     const roleButton = new ActionRowBuilder()
       .addComponents(
         new ButtonBuilder()
-          .setCustomId("buttonRole")
+          .setCustomId(`${role.id}AsButtonRole`)
           .setLabel(role.name)
           .setStyle(color)
           //.setEmoji(emoji.id)
@@ -62,41 +62,5 @@ module.exports = {
     
     await interaction.reply({ content: `已經建立 <@&${role.id}> 的按鈕身份組！`, ephemeral: true });
     await interaction.channel.send({ content: `**請點擊以下按鈕取得或移除身份組！**\n--\n<@&${role.id}> : ${roleDescription}`, components: [roleButton], allowedMentions: { parse: [] } });
-
-    /***** Collecting Button Clicks *****/
-    const fliter = bi => bi.member === ButtonInteraction.member;
-
-    const collector = interaction.channel.createMessageComponentCollector(fliter, { max: Infinity });
-    
-    collector.on('collect', async bi => {
-      if(bi.customId === 'buttonRole'){
-        try {
-          if(bi.member?.roles.cache.has(role.id)){
-            await bi.member?.roles.remove(role.id);
-            return bi.reply({ content: `已幫你移除 <@&${role.id}> 身份組`, ephemeral: true });
-          } else {
-            await bi.member?.roles.add(role.id);
-            return bi.reply({ content: `已幫你加上 <@&${role.id}> 身份組`, ephemeral: true });
-          }
-        } catch(e){
-          const errHookEmbed = new EmbedBuilder()
-              .setAuthor({ name: "Error Log", iconURL: interaction.client.user.avatarURL() })
-              .setColor(0x00bfff)
-              .setDescription("Command: `/buttonrole`")
-              .addFields(
-                { name: "User Tag", value: interaction.user.tag },
-                { name: "User ID", value: interaction.user.id },
-                { name: "Guild Name", value: interaction.guild.name },
-                { name: "Guild ID", value: interaction.guild.id }
-              )
-              .setTimestamp()
-              .setFooter({ text: 'Shard#1' });
-
-          errHook.send({
-            embeds: [errHookEmbed]
-          });
-        }
-      }
-    });
   }
 }
