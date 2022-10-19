@@ -8,7 +8,11 @@ Release Date: 2022-10-19
 * Added private commands deployment. ([deploy.js](./src/deploy.js)) (830563d)
 
 ### Changes
-* Added develop guild info. ([constants.json](./src/constants.json)) ()
+* Added develop guild info. ([constants.json](./src/constants.json)) (40cbd92)
+
+* Added some reply when permission denied. ([buttonRole.js](./src/cmds/buttonRole.js)) (725bc20)
+
+* Log in console when someone interacts the bot, added this for host cloud not to cycling. ([interactionCreate.js](./src/events/interactionCreate.js)) (bcb811c)
 
 ### Fixes
 * Fixed button in `/buttonrole` command will be expired after bot restart. ([interactionCreate.js](./src/events/interactionCreate.js)) (a0a8a1e)
