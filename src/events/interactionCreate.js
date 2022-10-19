@@ -13,8 +13,11 @@ module.exports = {
 
   async execute(interaction){
     if(banList.includes(interaction.user.id)) return;
-    if(!interaction.guild) return;
-    
+    if(!interaction.guild){
+      await interaction.reply({ content: '你以為不在伺服器裡就可以用指令？自作聰明啦！', ephemeral: true });
+      return;
+    }
+
     if(interaction.isChatInputCommand()){
       const command = interaction.client.commands.get(interaction.commandName);
 
