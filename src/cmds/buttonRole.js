@@ -1,5 +1,5 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
-const { ActionRowBuilder, ButtonBuilder, ButtonStyle, ButtonInteraction, EmbedBuilder } = require("discord.js");
+const { ActionRowBuilder, ButtonBuilder, ButtonStyle, EmbedBuilder, Role: role } = require("discord.js");
 
 const buttonRoleData = new SlashCommandBuilder()
   .setName("buttonrole")
@@ -34,10 +34,20 @@ module.exports = {
   data: buttonRoleData,
 
   async execute(interaction){
-    const role = interaction.options.getRole("身份組");
+    const optionRole = interaction.options.getRole("身份組");
     //const emoji = interaction.options.getString("表情符號");
     const roleDescription = interaction.options.getString("介紹");
     const optionColor = interaction.options.getString("顏色");
+
+    if(interaction.user.id !== interaction.guild?.ownerId && interaction.member?.roles.highest.comparePositionTo(optionRole) <= 0){
+      await interaction.reply({ content: '沒權限還想管理身份組啊？沒門！', ephemeral: true });
+      return;
+    }
+
+    if(!optionRole?.editable){
+      await interaction.reply({ content: '我沒權限管理這個身份組啦！給我權限我才能管理 = =', ephemeral: true });
+      return;
+    }
 
     const color = (() => {
       if(optionColor === "紅色"){
@@ -54,13 +64,13 @@ module.exports = {
     const roleButton = new ActionRowBuilder()
       .addComponents(
         new ButtonBuilder()
-          .setCustomId(`${role.id}AsButtonRole`)
-          .setLabel(role.name)
+          .setCustomId(`${optionRole.id}AsButtonRole`)
+          .setLabel(optionRole.name)
           .setStyle(color)
           //.setEmoji(emoji.id)
       );
     
-    await interaction.reply({ content: `已經建立 <@&${role.id}> 的按鈕身份組！`, ephemeral: true });
-    await interaction.channel.send({ content: `**請點擊以下按鈕取得或移除身份組！**\n--\n<@&${role.id}> : ${roleDescription}`, components: [roleButton], allowedMentions: { parse: [] } });
+    await interaction.reply({ content: `已經建立 <@&${optionRole.id}> 的按鈕身份組！`, ephemeral: true });
+    await interaction.channel.send({ content: `**請點擊以下按鈕取得或移除身份組！**\n--\n<@&${optionRole.id}> : ${roleDescription}`, components: [roleButton], allowedMentions: { parse: [] } });
   }
 }
