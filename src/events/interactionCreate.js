@@ -13,7 +13,7 @@ module.exports = {
 
   async execute(interaction){
     if(banList.includes(interaction.user.id)) return;
-    if(interaction.guild === null) return;
+    if(!interaction.guild) return;
     
     if(interaction.isChatInputCommand()){
       const command = interaction.client.commands.get(interaction.commandName);
@@ -51,6 +51,40 @@ module.exports = {
         errHook.send({
           embeds: [errHookEmbed]
         });
+      }
+    }
+
+    if(interaction.isButton()){
+      if(interaction.customId.includes('AsButtonRole')){
+        const roleId = interaction.customId.replace(/AsButtonRole/, '');
+        
+        try {
+          if(interaction.member?.roles.cache.has(roleId)){
+            await interaction.member?.roles.remove(roleId);
+            await interaction.reply({ content: `已幫你移除 <@&${roleId}> 身份組`, ephemeral: true });
+          } else {
+            await interaction.member?.roles.add(roleId);
+            await interaction.reply({ content: `已幫你加上 <@&${roleId}> 身份組`, ephemeral: true });
+          }
+        } catch(e){
+          const errHookEmbed = new EmbedBuilder()
+            .setAuthor({ name: "Error Log", iconURL: interaction.client.user.avatarURL() })
+            .setColor(0xff0000)
+            .setDescription("Command: `/buttonrole <interaction>`")
+            .addFields(
+              { name: 'Error Code', value: error.message },
+              { name: "User Tag", value: interaction.user.tag },
+              { name: "User ID", value: interaction.user.id },
+              { name: "Guild Name", value: interaction.guild.name },
+              { name: "Guild ID", value: interaction.guild.id }
+            )
+            .setTimestamp()
+            .setFooter({ text: 'Shard#4' });
+
+          errHook.send({
+            embeds: [errHookEmbed]
+          });
+        }
       }
     }
   }
