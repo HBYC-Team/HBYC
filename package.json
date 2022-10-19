@@ -1,6 +1,6 @@
 {
   "name": "HBYC",
-  "version": "3.1.0",
+  "version": "3.1.1",
   "description": "A simple Discord Bot, written in JavaScript.",
   "main": "src/app.js",
   "author": "HBYC Dev Team",
