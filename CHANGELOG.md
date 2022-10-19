@@ -1,6 +1,18 @@
 # HBYC Changelog
 This documentation is a changelog of this repository.
 
+## v3.1.1
+Release Date: 2022-10-19
+
+### Features
+* Added private commands deployment. ([deploy.js](./src/deploy.js)) (830563d)
+
+### Changes
+* Added develop guild info. ([constants.json](./src/constants.json)) ()
+
+### Fixes
+* Fixed button in `/buttonrole` command will be expired after bot restart. ([interactionCreate.js](./src/events/interactionCreate.js)) (a0a8a1e)
+
 ## v3.1.0
 Release Date: 2022-10-16
 
