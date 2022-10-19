@@ -12,6 +12,8 @@ module.exports = {
   name: "interactionCreate",
 
   async execute(interaction){
+    console.log('Someone interacts the bot. See logs.'); // Added this to let host cloud not to reboot
+
     if(banList.includes(interaction.user.id)) return;
     if(!interaction.guild){
       await interaction.reply({ content: '你以為不在伺服器裡就可以用指令？自作聰明啦！', ephemeral: true });
