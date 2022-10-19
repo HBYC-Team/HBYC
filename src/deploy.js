@@ -1,20 +1,30 @@
-const { REST } = require("@discordjs/rest");
-const { Routes } = require("discord-api-types/v10");
+const { REST } = require('@discordjs/rest');
+const { Routes } = require('discord-api-types/v10');
 
 const fs = require("fs");
+
+const { devGuild }  = require('./constants.json');
 
 const config = require('../config');
 
 const token = config.bot.token;
 const clientId = config.bot.id;
 
-const commands = [];
+const globalCommands = [];
+const privateCommands = [];
 
-const commandFiles = fs.readdirSync('./src/cmds').filter(file => file.endsWith('.js'));
+const globalCommandFiles = fs.readdirSync('./src/cmds').filter(file => file.endsWith('.js'));
 
-for(const file of commandFiles) {
+for(const file of globalCommandFiles){
   const command = require(`./cmds/${file}`);
-  commands.push(command.data.toJSON());
+  globalCommands.push(command.data.toJSON());
+}
+
+const privateCommandFiles = fs.readdirSync('./src/cmds').filter(file => file.endsWith('.js', '.cjs'));
+
+for(const file of privateCommandFiles){
+  const command = require(`./cmds/${file}`);
+  privateCommands.push(command.data.toJSON());
 }
 
 const rest = new REST({ version: "10" }).setToken(token);
@@ -25,10 +35,16 @@ const rest = new REST({ version: "10" }).setToken(token);
 
     await rest.put(
       Routes.applicationCommands(clientId),
-      { body: commands },
-
+      { body: globalCommands }
     );
-  } catch(error) {
-    console.error(error);
+
+    console.log("Started refreshing private application commands.");
+
+    await rest.put(
+      Routes.applicationGuildCommands(clientId, devGuild.id),
+      { body: privateCommands }
+    );
+  } catch(err) {
+    console.error(err);
   }
 })();
