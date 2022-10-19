@@ -22,8 +22,8 @@ module.exports = {
       .setColor(0x1cb7ca)
       .setTitle(`最新版本公告 - ${bot.version}`)
       .addFields(
-        { name: ">> 使用者方面", value: "+ </say:992404868927078481> 指令再也不能夠 @everyone 或 @here 了\n+ 重新整理並修復整份機器人存在的 bug\n+ 若是遊戲指令的參數錯誤，機器人會回應你一些話\n+ 修改使用者條款中的一些錯誤字詞" },
-        { name: ">> 專案庫方面", value: "+ 移動整份專案至新的 repository\n+ Clean up 整份專案，進行大量 refactor\n+ 新的 banner\n+ 將 License 的部份重新闡述\n+ 改用 yarn 作為套件管理" }
+        { name: ">> 使用者方面", value: "+ 解決 </buttonrole:1009671086952169483> 的按鈕在一段時間後就會失效的狀況\n + </buttonrole:1009671086952169483> 如果使用者或機器人權限不足將會直接回應" },
+        { name: ">> 專案庫方面", value: "+ 將 `deploy.js` 重新彙整，現在可以註冊私人測試指令了\n+ 當有人觸發交互 console 皆會 log ，以彌補機器人會常常重啟 (cycling 的關係 ) 的問題" }
       )
       .setTimestamp()
       .setFooter({ text: "更詳細的內容請到Github上查看喔！" });
