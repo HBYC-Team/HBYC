@@ -1,8 +1,8 @@
 {
 	"bot": {
 		"name": "HBYC",
-		"version": "v3.1.0",
-		"releaseDate": "2022-10-16",
+		"version": "v3.1.1",
+		"releaseDate": "2022-10-19",
 		"invite": "https://discord.com/api/oauth2/authorize?client_id=977024737156931675&permissions=1644971949559&scope=bot%20applications.commands"
 	},
 	"links": {
@@ -22,9 +22,13 @@
 		"reportChannelId": "977410935947952138"
 	},
 	"devTeam": {
-		"members": "恐龍#2549, Mantou1233#3249",
-		"programTeam": "恐龍#2549, Mantou1233#3249",
+		"members": "恐龍#2549, Mantou1233#0001",
+		"programTeam": "恐龍#2549, Mantou1233#0001",
 		"internetTeam": "恐龍#2549",
 		"artTeam": "恐龍#2549"
+	},
+	"devGuild": {
+		"name": "Bot Testing",
+		"id": "915608186654961664"
 	}
 }
