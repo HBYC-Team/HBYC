@@ -3,8 +3,8 @@
  **********  Project Name : HBYC                   **********
  **********  Author       : HBYC-Team Organization **********
  **********  License      : GPL-3.0                **********
- **********  Version      : 3.1.0                  **********
- **********  Release Date : 2022-10-16             **********
+ **********  Version      : 3.1.1                  **********
+ **********  Release Date : 2022-10-19             **********
  ************************************************************
  ************************************************************/
  
@@ -55,7 +55,6 @@ const botHook = new WebhookClient({
   id: config.botHook.id,
   token: config.botHook.token
 });
-
 
 client.commands = new Collection();
 
