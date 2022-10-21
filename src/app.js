@@ -51,10 +51,7 @@ const client = new Client({
   ] 
 });
 
-const botHook = new WebhookClient({
-  id: config.botHook.id,
-  token: config.botHook.token
-});
+const {botHook} = require("../hooks");
 
 client.commands = new Collection();
 
