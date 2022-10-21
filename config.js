@@ -13,7 +13,7 @@ if(!process.env.errHookToken) throw new Error('Error Log Webhook token has not b
 if(!process.env.reportHookId) throw new Error('Report Log Webhook id has not been configured.');
 if(!process.env.reportHookToken) throw new Error('Report Log Webhook token has not been configured.');
 
-if(!process.env.osuApiKey) throw new Error('Osu! Api Key has not been configured.')
+if(!process.env.osuApiKey) console.log("No osu api key is configurated. This means the Osu command will not be usable.")
 
 module.exports = {
   bot: {

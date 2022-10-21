@@ -39,6 +39,7 @@ module.exports = {
   data: osuData,
 
   async execute(interaction){
+    if(!config.osu.apiKey) return interaction.reply({ephemeral: true, content: "在配置裏沒有找到osu的apikey。請詢問bot的擁有者，否則本功能將無法使用。"})
     if(interaction.options.getSubcommand() === 'userinfo'){
       const osuUsername = interaction.options.getString("玩家名稱");
 
