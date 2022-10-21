@@ -44,7 +44,7 @@ module.exports = {
     const p2 = interaction.options.getUser("p2");
     const p3 = interaction.options.getUser("p3");
 
-    if(user.id === p2.id || user.id === p3?.id){
+    if([p2.id, p3?.id ?? ""].includes(user.id)){
       await interaction.reply({ content: "你也太悲慘了吧，只能自己跟自己玩喔，找個朋友陪你玩啦，不對，你肯定沒有朋友吧哈哈哈 ~~也許你可以開個小帳自己跟自己玩~~", ephemeral: true });
       return;
     }

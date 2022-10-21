@@ -44,23 +44,7 @@ module.exports = {
     const p4 = interaction.options.getUser("p4");
     const p5 = interaction.options.getUser("p5");
   
-    const players = [user];
-
-    if(p2 !== null){
-      players.push(p2);
-    }
-
-    if(p3 !== null){
-      players.push(p3);
-    }
-
-    if(p4 !== null){
-      players.push(p4);
-    }
-
-    if(p5 !== null){
-      players.push(p5);
-    }
+    const players = [user, p2, p3, p4, p5].filter(v => v !== null);
 
     const game = new DjsFinalCode({
       source: interaction,
