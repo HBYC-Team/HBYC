@@ -3,10 +3,7 @@ const { Client } = require("@hizollo/osu-api");
 const { EmbedBuilder, WebhookClient } = require("discord.js");
 const config = require('../../config');
 
-const cmdHook = new WebhookClient({
-  id: config.cmdHook.id,
-  token: config.cmdHook.token
-});
+const {cmdHook} = require("../hooks");
 
 const osu = new Client({
   apiKey: config.osu.apiKey

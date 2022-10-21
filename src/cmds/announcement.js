@@ -4,10 +4,7 @@ const { bot } = require('../constants.json');
 
 const config = require('../../config');
 
-const cmdHook = new WebhookClient({
-  id: config.cmdHook.id,
-  token: config.cmdHook.token
-});
+const {cmdHook} = require("../hooks");
 
 const announcementData = new SlashCommandBuilder()
   .setName("announcement")

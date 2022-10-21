@@ -1,11 +1,7 @@
 const { EmbedBuilder, WebhookClient } = require('discord.js');
 const moment = require('moment');
 const config = require('../../config');
-
-const botHook = new WebhookClient({
-  id: config.botHook.id,
-  token: config.botHook.token
-});
+const {botHook} = require("../hooks");
 
 module.exports = {
   name: "ready",

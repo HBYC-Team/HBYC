@@ -2,11 +2,7 @@ const { EmbedBuilder, WebhookClient } = require('discord.js');
 const { banList } = require('../data/banList.json');
 const { errors } = require('../config.json');
 const config = require('../../config');
-
-const errHook = new WebhookClient({
-  id: config.errHook.id,
-  token: config.errHook.token
-});
+const {errHook} = require("../hooks");
 
 module.exports = {
   name: "interactionCreate",

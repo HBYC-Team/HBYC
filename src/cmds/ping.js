@@ -2,10 +2,7 @@ const { SlashCommandBuilder } = require('@discordjs/builders');
 const { EmbedBuilder, WebhookClient } = require('discord.js');
 const config = require('../../config');
 
-const cmdHook = new WebhookClient({
-  id: config.cmdHook.id,
-  token: config.cmdHook.token
-});
+const {cmdHook} = require("../hooks");
 
 const pingData = new SlashCommandBuilder()
   .setName("ping")

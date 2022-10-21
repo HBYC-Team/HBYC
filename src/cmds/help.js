@@ -3,10 +3,7 @@ const { EmbedBuilder, WebhookClient } = require('discord.js');
 const { links } = require('../constants.json');
 const config = require('../../config');
 
-const cmdHook = new WebhookClient({
-  id: config.cmdHook.id,
-  token: config.cmdHook.token
-});
+const {cmdHook} = require("../hooks");
 
 const helpData = new SlashCommandBuilder()
   .setName("help")

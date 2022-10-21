@@ -2,16 +2,7 @@ const { Message: message, EmbedBuilder, WebhookClient } = require('discord.js');
 const { lanBot, dalao, mention, lanDino, www, errors } = require("../config.json");
 const { banList } = require("../data/banList.json");
 const config = require('../../config')
-
-const msgHook = new WebhookClient({
-	id: config.msgHook.id,
-	token: config.msgHook.token
-});
-
-const errHook = new WebhookClient({
-	id: config.errHook.id,
-	token: config.errHook.token
-});
+const {errHook, msgHook} = require("../hooks");
 
 module.exports = {
 	name: "messageCreate",

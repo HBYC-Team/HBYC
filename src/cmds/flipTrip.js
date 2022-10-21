@@ -4,10 +4,7 @@ const { DjsFlipTrip } = require('@hizollo/games');
 const { flipTrip } = require('../data/GameStrings.json');
 const config = require('../../config');
 
-const cmdHook = new WebhookClient({
-  id: config.cmdHook.id,
-  token: config.cmdHook.token
-});
+const {cmdHook} = require("../hooks");
 
 const flipTripData = new SlashCommandBuilder()
   .setName("fliptrip")

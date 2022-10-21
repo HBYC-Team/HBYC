@@ -4,10 +4,7 @@ const { DjsBullsAndCows } = require('@hizollo/games');
 const { bullsAndCows } = require('../data/GameStrings.json');
 const config = require('../../config');
 
-const cmdHook = new WebhookClient({
-  id: config.cmdHook.id,
-  token: config.cmdHook.token
-});
+const {cmdHook} = require("../hooks");
 
 const bullsAndCowsData = new SlashCommandBuilder()
   .setName("bullsandcows")
