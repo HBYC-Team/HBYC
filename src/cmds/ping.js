@@ -1,12 +1,11 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
-const { EmbedBuilder, WebhookClient } = require('discord.js');
-const config = require('../../config');
+const { EmbedBuilder } = require('discord.js');
 
-const {cmdHook} = require("../hooks");
+const { cmdHook } = require('../utils/WebhookManager');
 
 const pingData = new SlashCommandBuilder()
   .setName("ping")
-  .setDescription("看看HBYC的跑速");
+  .setDescription('揍我一拳看看我多久會回擊');
 
 module.exports = {
   data: pingData,
@@ -14,12 +13,12 @@ module.exports = {
     let p = Math.round(interaction.client.ws.ping);
     
     const replyEmbed = new EmbedBuilder()
-            .setColor(0xffbc00)
-            .setTitle("HBYC目前的跑速")
-            .addFields({ name: "API延遲", value: `${p}(ms)` })
-            .setThumbnail(interaction.client.user.avatarURL())
-            .setTimestamp()
-            .setFooter({ text: "有一些特定內容的訊息會有隱藏回覆！試試看輸入 爛bot" });
+      .setColor(0xffbc00)
+      .setTitle("HBYC目前的跑速")
+      .addFields({ name: "API延遲", value: `${p}(ms)` })
+      .setThumbnail(interaction.client.user.avatarURL())
+      .setTimestamp()
+      .setFooter({ text: "大膽刁民竟敢揍我，你完蛋了" });
 
     await interaction.reply({ embeds: [replyEmbed] });
 

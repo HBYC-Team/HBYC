@@ -1,10 +1,9 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
-const { EmbedBuilder, WebhookClient } = require('discord.js');
+const { EmbedBuilder } = require('discord.js');
 const { DjsGomoku } = require('@hizollo/games');
 const { gomoku } = require('../data/GameStrings.json');
-const config = require('../../config');
 
-const {cmdHook} = require("../hooks");
+const { cmdHook } = require('../utils/WebhookManager');
 
 const gomokuData = new SlashCommandBuilder()
   .setName("gomoku")
@@ -41,7 +40,7 @@ module.exports = {
     const p2 = interaction.options.getUser("p2");
     const p3 = interaction.options.getUser("p3");
 
-    if([p2.id, p3?.id ?? ""].includes(user.id)){
+    if([p2.id, p3?.id].includes(user.id)){
       await interaction.reply({ content: "你也太悲慘了吧，只能自己跟自己玩喔，找個朋友陪你玩啦，不對，你肯定沒有朋友吧哈哈哈 ~~也許你可以開個小帳自己跟自己玩~~", ephemeral: true });
       return;
     }
@@ -89,7 +88,7 @@ module.exports = {
         { name: "User ID", value: user.id },
         { name: "Guild Name", value: interaction.guild.name },
         { name: "Guild ID", value: interaction.guild.id },
-        { name: "Players", value: `${user.tag} & ${p2.tag}`}
+        { name: "Players", value: `${user.tag} & ${p2.tag} & ${p3?.tag}`}
       )
       .setTimestamp()
       .setFooter({ text: 'Shard#1' });

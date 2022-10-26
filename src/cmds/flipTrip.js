@@ -1,10 +1,9 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
-const { EmbedBuilder, WebhookClient } = require('discord.js');
+const { EmbedBuilder } = require('discord.js');
 const { DjsFlipTrip } = require('@hizollo/games');
 const { flipTrip } = require('../data/GameStrings.json');
-const config = require('../../config');
 
-const {cmdHook} = require("../hooks");
+const { cmdHook } = require('../utils/WebhookManager');
 
 const flipTripData = new SlashCommandBuilder()
   .setName("fliptrip")

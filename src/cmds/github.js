@@ -1,9 +1,8 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
-const { EmbedBuilder, WebhookClient } = require('discord.js');
+const { EmbedBuilder } = require('discord.js');
 const { links } = require('../constants.json');
-const config = require('../../config');
 
-const {cmdHook} = require("../hooks");
+const { cmdHook } = require('../utils/WebhookManager');
 
 const githubData = new SlashCommandBuilder()
   .setName("github")
@@ -23,7 +22,7 @@ module.exports = {
       )
       .setThumbnail(interaction.client.user.displayAvatarURL())
       .setTimestamp()
-      .setFooter({ text: "歡迎使用 /report 指令提供建議喔" })
+      .setFooter({ text: "有一些特定內容的訊息會有隱藏回覆！試試看輸入 爛bot" })
             
     await interaction.reply({ embeds: [githubEmbed] });
 

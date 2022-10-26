@@ -1,8 +1,7 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
-const { EmbedBuilder, WebhookClient } = require('discord.js');
-const config = require('../../config');
+const { EmbedBuilder } = require('discord.js');
 
-const {cmdHook} = require("../hooks");
+const { cmdHook } = require('../utils/WebhookManager');
 
 const echoData = new SlashCommandBuilder()
   .setName("echo")
@@ -20,7 +19,7 @@ module.exports = {
   async execute(interaction) {
     const content = interaction.options.getString("訊息內容");
 
-    if(content === '@everyone' || content === 'here'){
+    if(content === '@everyone'){
       await interaction.reply({ content: '還想 @everone 啊，你是吃了熊心豹子膽嗎？', ephemeral: true });
       return;
     }

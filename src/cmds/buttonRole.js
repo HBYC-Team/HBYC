@@ -1,5 +1,7 @@
-const { SlashCommandBuilder } = require("@discordjs/builders");
-const { ActionRowBuilder, ButtonBuilder, ButtonStyle, EmbedBuilder, Role: role } = require("discord.js");
+const { SlashCommandBuilder } = require('@discordjs/builders');
+const { ActionRowBuilder, ButtonBuilder, ButtonStyle, EmbedBuilder, Role: role } = require('discord.js');
+
+const { cmdHook } = require('../utils/WebhookManager');
 
 const buttonRoleData = new SlashCommandBuilder()
   .setName("buttonrole")
@@ -72,5 +74,22 @@ module.exports = {
     
     await interaction.reply({ content: `已經建立 <@&${optionRole.id}> 的按鈕身份組！`, ephemeral: true });
     await interaction.channel.send({ content: `**請點擊以下按鈕取得或移除身份組！**\n--\n<@&${optionRole.id}> : ${roleDescription}`, components: [roleButton], allowedMentions: { parse: [] } });
+  
+    const cmdHookEmbed = new EmbedBuilder()
+      .setAuthor({ name: "Command Log", iconURL: interaction.client.user.avatarURL() })
+      .setColor(0x00bfff)
+      .setDescription("Command: `/announcement`")
+      .addFields(
+        { name: "User Tag", value: interaction.user.tag },
+        { name: "User ID", value: interaction.user.id },
+        { name: "Guild Name", value: interaction.guild.name },
+        { name: "Guild ID", value: interaction.guild.id }
+      )
+      .setTimestamp()
+      .setFooter({ text: 'Shard#1' });
+
+    cmdHook.send({
+      embeds: [cmdHookEmbed]
+    });
   }
 }

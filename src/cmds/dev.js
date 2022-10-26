@@ -1,9 +1,8 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
-const { EmbedBuilder, WebhookClient } = require('discord.js');
+const { EmbedBuilder } = require('discord.js');
 const { devTeam } = require('../constants.json');
-const config = require('../../config');
 
-const {cmdHook} = require("../hooks");
+const { cmdHook } = require('../utils/WebhookManager');
 
 const devData = new SlashCommandBuilder()
   .setName("dev")
@@ -14,7 +13,6 @@ module.exports = {
   data: devData,
 
   async execute(interaction){
-    
     const devEmbed = new EmbedBuilder()
       .setTitle("HBYC的創作者")
       .setColor(0x756452)
