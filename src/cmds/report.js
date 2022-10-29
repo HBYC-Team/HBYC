@@ -1,12 +1,8 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
-const { EmbedBuilder, WebhookClient } = require('discord.js');
+const { EmbedBuilder } = require('discord.js');
 const { supportGuild } = require('../constants.json');
-const config = require('../../config');
 
-const reportHook = new WebhookClient({
-  id: config.reportHook.id,
-  token: config.reportHook.token
-});
+const { reportHook } = require('../utils/WebhookManager');
 
 const reportData = new SlashCommandBuilder()
   .setName("report")
@@ -46,7 +42,7 @@ module.exports = {
       ) 
       .setTimestamp()
       .setThumbnail(interaction.user.avatarURL())
-      .setFooter({ text: `你的訊息已經回報至後台`, iconURL: interaction.client.user.avatarURL() });
+      .setFooter({ text: `你的訊息已經回報至後台 :)`, iconURL: interaction.client.user.avatarURL() });
 
     await interaction.reply({ embeds: [replyEmbed] });
     await interaction.user.send(`您的回報內容已經送至後台，請稍待團隊成員進行聯絡，也可以加入這裡進行發問：${supportGuild.invite}`);
