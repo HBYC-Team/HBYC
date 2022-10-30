@@ -1,8 +1,8 @@
-const { Message: message, EmbedBuilder, WebhookClient } = require('discord.js');
+const { Message: message, EmbedBuilder } = require('discord.js');
 const { lanBot, dalao, mention, lanDino, www, errors } = require("../config.json");
 const { banList } = require("../data/banList.json");
-const config = require('../../config')
-const {errHook, msgHook} = require("../hooks");
+
+const { errHook, msgHook } = require('../utils/WebhookManager');
 
 module.exports = {
 	name: "messageCreate",
@@ -13,9 +13,8 @@ module.exports = {
 		}
 
 		async function catchError(error){
-			if(error.message === 'Missing Permissions') return;
+			if(error.message === 'Missing Permissions' || error.message === 'Cannot send an empty message') return;
 
-			const channelName = message.client.channels.cache.get(message.channelId);
 			await message.author.send(`${errors.messageSendErr}，錯誤代碼如下:\`${error.message}\``);
 					
 			const errHookEmbed = new EmbedBuilder()
@@ -37,7 +36,7 @@ module.exports = {
 		}
 
 		if(message.author.bot) return;
-		if(message.guild === null) return;
+		if(!message.guild) return;
 		if(banList.includes(message.author.id)) return;
 
 		if(message.mentions.has(message.client.user.id, { ignoreRoles: true, ignoreEveryone: true })){
