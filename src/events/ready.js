@@ -1,8 +1,7 @@
-const { EmbedBuilder, WebhookClient } = require('discord.js');
+const { EmbedBuilder } = require('discord.js');
 const moment = require('moment');
-const config = require('../../config');
-const {botHook} = require("../hooks");
-
+const { botHook } = require('../utils/WebhookManager');
+ 
 module.exports = {
   name: "ready",
   

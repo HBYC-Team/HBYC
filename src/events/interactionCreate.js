@@ -1,15 +1,13 @@
-const { EmbedBuilder, WebhookClient } = require('discord.js');
+const { EmbedBuilder } = require('discord.js');
 const { banList } = require('../data/banList.json');
 const { errors } = require('../config.json');
-const config = require('../../config');
-const {errHook} = require("../hooks");
+
+const { errHook } = require('../utils/WebhookManager');
 
 module.exports = {
   name: "interactionCreate",
 
   async execute(interaction){
-    console.log('Someone interacts the bot. See logs.'); // Added this to let host cloud not to reboot
-
     if(banList.includes(interaction.user.id)) return;
     if(!interaction.guild){
       await interaction.reply({ content: '你以為不在伺服器裡就可以用指令？自作聰明啦！', ephemeral: true });
@@ -62,10 +60,10 @@ module.exports = {
         try {
           if(interaction.member?.roles.cache.has(roleId)){
             await interaction.member?.roles.remove(roleId);
-            await interaction.reply({ content: `已幫你移除 <@&${roleId}> 身份組`, ephemeral: true });
+            await interaction.reply({ content: `已幫你移除 <@&${roleId}> 身份組了喔！`, ephemeral: true });
           } else {
             await interaction.member?.roles.add(roleId);
-            await interaction.reply({ content: `已幫你加上 <@&${roleId}> 身份組`, ephemeral: true });
+            await interaction.reply({ content: `已幫你加上 <@&${roleId}> 身份組了喔！`, ephemeral: true });
           }
         } catch(e){
           const errHookEmbed = new EmbedBuilder()
