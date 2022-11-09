@@ -11,6 +11,8 @@ const flipTripData = new SlashCommandBuilder()
   .addIntegerOption(option =>
     option.setName("棋盤數")
     .setDescription("棋盤數 (1~10 ， 1 最簡單， 10 最困難 )")
+    .setMaxValue(10)
+    .setMinValue(1)
     .setRequired(true)
   )
 
@@ -20,11 +22,6 @@ module.exports = {
 
   async execute(interaction){
     const size = interaction.options.getInteger("棋盤數");
-
-    if(size > 10 || size < 1) {
-      await interaction.reply({ content: "你沒看到說明上面寫只能填 1~10 的整數嗎？", ephemeral: true });
-      return;
-    }
 
     const game = new DjsFlipTrip({
       source: interaction,
@@ -46,7 +43,7 @@ module.exports = {
         { name: "User ID", value: interaction.user.id },
         { name: "Guild Name", value: interaction.guild.name },
         { name: "Guild ID", value: interaction.guild.id },
-        { name: "Argument", value: `${size}` }
+        { name: "Argument", value: size.toString() }
       )
       .setTimestamp()
       .setFooter({ text: 'Shard#1' });

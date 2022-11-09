@@ -11,6 +11,8 @@ const ticTacToeData = new SlashCommandBuilder()
   .addIntegerOption(option => 
     option.setName("盤面大小")
     .setDescription("請輸入盤面大小 (1~4)")
+    .setMaxValue(4)
+    .setMinValue(1)
     .setRequired(true)
   )
   .addUserOption(option => 
@@ -35,11 +37,6 @@ module.exports = {
 
     async function duplicateIds(){
       await interaction.reply({ content: "可惜你沒朋友，只能跟自己玩，沒人陪你哈哈哈，那乾脆不要玩啦！", ephemeral: true });
-      return;
-    }
-
-    if(!(boardSize > 0 && boardSize <= 4)){
-      await interaction.reply({ content: "你沒看到版面大小只能設定 1 至 4 之間嗎？眼睛瞎了？", ephemeral: true });
       return;
     }
 
@@ -86,7 +83,8 @@ module.exports = {
         { name: "User ID", value: interaction.user.id },
         { name: "Guild Name", value: interaction.guild.name },
         { name: "Guild ID", value: interaction.guild.id },
-        { name: "Players", value: `${user.tag} & ${p2.tag} & ${p3?.tag}`}
+        { name: "Players", value: `${user.tag} & ${p2.tag} & ${p3?.tag} ` },
+        { name: "Size", value: boardSize.toString() }
       )
       .setTimestamp()
       .setFooter({ text: 'Shard#1' });
