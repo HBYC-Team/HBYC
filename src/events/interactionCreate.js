@@ -32,6 +32,8 @@ module.exports = {
           return;
         }
         
+        if(error.message === 'Unknown interaction') return;
+        
         await interaction.user.send(errors.interactionErr);
 
         const errHookEmbed = new EmbedBuilder()
