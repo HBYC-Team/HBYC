@@ -9,9 +9,9 @@
 ## 聊天指令
 * /avatar - 查看一位使用者的頭像。
 
-* /echo - 強迫 HBYC 重複一句你說的話。(使用時請遵守[使用者條款](./TeamOfService-Tw.md))
+* /echo - 強迫 HBYC 重複一句你說的話。(使用時請遵守[使用者條款](./TermsOfService-Tw.md))
 
-* /say - 強迫 HBYC 說出一句訊息。（使用時請遵守[使用者條款](./TeamOfService-Tw.md))
+* /say - 強迫 HBYC 說出一句訊息。（使用時請遵守[使用者條款](./TermsOfService-Tw.md))
 
 * /info - 查看一位使用者或是伺服器的資訊。
 
