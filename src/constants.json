@@ -1,8 +1,8 @@
 {
 	"bot": {
 		"name": "HBYC",
-		"version": "v3.1.1",
-		"releaseDate": "2022-10-19",
+		"version": "v3.2.0",
+		"releaseDate": "2022-11-11",
 		"invite": "https://discord.com/api/oauth2/authorize?client_id=977024737156931675&permissions=1644971949559&scope=bot%20applications.commands"
 	},
 	"links": {
@@ -19,7 +19,11 @@
 		"name": "HBYC Support",
 		"id": "977204156043509780",
 		"invite": "https://discord.gg/J7X2nWXszp",
-		"reportChannelId": "977410935947952138"
+		"annChannelId": "1007568885400219739",
+		"reportChannelId": "977410935947952138",
+		"roles": {
+			"updateMentionId": "1008683081672179764"
+		}
 	},
 	"devTeam": {
 		"members": "恐龍#2549, Mantou1233#0001",
@@ -29,6 +33,7 @@
 	},
 	"devGuild": {
 		"name": "Bot Testing",
-		"id": "915608186654961664"
+		"id": "915608186654961664",
+		"testChannelId": "1027923519788548146"
 	}
 }
