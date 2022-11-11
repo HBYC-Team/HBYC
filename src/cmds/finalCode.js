@@ -1,10 +1,9 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
-const { EmbedBuilder, WebhookClient } = require('discord.js');
+const { EmbedBuilder } = require('discord.js');
 const { DjsFinalCode } = require('@hizollo/games');
 const { finalCode } = require('../data/GameStrings.json');
-const config = require('../../config');
 
-const {cmdHook} = require("../hooks");
+const { cmdHook } = require('../utils/WebhookManager');
 
 const finalCodeData = new SlashCommandBuilder()
   .setName("finalcode")
@@ -61,7 +60,7 @@ module.exports = {
         { name: "User Tag", value: interaction.user.tag },
         { name: "User ID", value: interaction.user.id },
         { name: "Guild Name", value: interaction.guild.name },
-        { name: "Guild ID", value: interaction.guild.id }
+        { name: "Guild ID", value: interaction.guild.id },
       )
       .setTimestamp()
       .setFooter({ text: 'Shard#1' });

@@ -1,33 +1,33 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
+const { DjsLightsUp } = require('@hizollo/games');
 const { EmbedBuilder } = require('discord.js');
-const { DjsFlipTrip } = require('@hizollo/games');
-const { flipTrip } = require('../data/GameStrings.json');
+
+const { lightsUp } = require('../data/GameStrings.json');
 
 const { cmdHook } = require('../utils/WebhookManager');
 
-const flipTripData = new SlashCommandBuilder()
-  .setName("fliptrip")
-  .setDescription("來玩一場 Flip trip 遊戲！")
-  .addIntegerOption(option =>
-    option.setName("棋盤數")
-    .setDescription("棋盤數 (1~10 ， 1 最簡單， 10 最困難 )")
-    .setMaxValue(10)
+const lightsUpData = new SlashCommandBuilder()
+  .setName('lightsup')
+  .setDescription('遊玩一場點燈遊戲！')
+  .addIntegerOption(option => option
+    .setName('棋盤大小')
+    .setDescription('欲遊玩的棋盤大小，請填入 1 至 5 的整數，預設為 5')
+    .setMaxValue(5)
     .setMinValue(1)
-    .setRequired(true)
+    .setRequired(false)
   )
 
-
 module.exports = {
-  data: flipTripData,
+  data: lightsUpData,
 
   async execute(interaction){
-    const size = interaction.options.getInteger("棋盤數");
+    const boardSize = interaction.options?.getInteger('棋盤大小');
 
-    const game = new DjsFlipTrip({
+    const game = new DjsLightsUp({
       source: interaction,
       players: [interaction.user],
-      boardSize: size,
-      strings: flipTrip
+      strings: lightsUp,
+      boardSize: boardSize ?? 5
     });
 
     await game.initialize();
@@ -37,16 +37,15 @@ module.exports = {
     const cmdHookEmbed = new EmbedBuilder()
       .setAuthor({ name: "Command Log", iconURL: interaction.client.user.avatarURL() })
       .setColor(0x00bfff)
-      .setDescription("Command: `/fliptrip`")
+      .setDescription("Command: `/lightsup`")
       .addFields(
         { name: "User Tag", value: interaction.user.tag },
         { name: "User ID", value: interaction.user.id },
         { name: "Guild Name", value: interaction.guild.name },
         { name: "Guild ID", value: interaction.guild.id },
-        { name: "Argument", value: size.toString() }
+        { name: "Size", value: boardSize?.toString() ?? 'default' }
       )
       .setTimestamp()
-      .setFooter({ text: 'Shard#1' });
 
     cmdHook.send({
       embeds: [cmdHookEmbed]

@@ -3,14 +3,14 @@
  **********  Project Name : HBYC                   **********
  **********  Author       : HBYC-Team Organization **********
  **********  License      : GPL-3.0                **********
- **********  Version      : 3.1.1                  **********
- **********  Release Date : 2022-10-19             **********
+ **********  Version      : 3.2.0                  **********
+ **********  Release Date : 2022-11-11             **********
  ************************************************************
  ************************************************************/
  
  /*
  *
- * Copyright 2022 HBYC-Team <https://github.com/HBYC-Team>.
+ * Copyright (C) 2022 HBYC-Team <https://github.com/HBYC-Team>.
  *
  * HBYC is a open source project. Before you using this project, please follow the LICENSE file.
  *
@@ -25,11 +25,13 @@
  */
 
 
-const { Client, Collection, GatewayIntentBits, Partials, InteractionType, WebhookClient, EmbedBuilder } = require('discord.js');
+const { Client, Collection, GatewayIntentBits, Partials, EmbedBuilder } = require('discord.js');
 const { bot, supportGuild } = require('./constants.json');
 const { banList } = require('./data/banList.json');
-const fs = require('fs');
 const config = require('../config');
+const fs = require('fs');
+
+const { botHook } = require('./utils/WebhookManager');
 
 const client = new Client({ 
   intents: [
@@ -51,11 +53,9 @@ const client = new Client({
   ] 
 });
 
-const {botHook} = require("../hooks");
-
 client.commands = new Collection();
 
-const commandFiles = fs.readdirSync('./src/cmds').filter(file => file.endsWith('.js'));
+const commandFiles = fs.readdirSync('./src/cmds').filter(file => file.endsWith('.js') || file.endsWith('.cjs'));
 const eventFiles = fs.readdirSync('./src/events').filter(file => file.endsWith('.js'));
 
 for (const file of commandFiles) {
@@ -100,7 +100,7 @@ client.on("guildDelete", guild => {
         { name: "Server Count", value: `${guild.client.guilds.cache.size}` }
       ) 
       .setTimestamp()
-      .setFooter({ text: `Shard#3` });
+      .setFooter({ text: 'Shard#3' });
 
   botHook.send({
     embeds: [guildJoinHookEmbed]

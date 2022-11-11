@@ -1,17 +1,16 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
-const { EmbedBuilder, WebhookClient } = require('discord.js');
+const { EmbedBuilder } = require('discord.js');
 const { DjsBigTwo } = require('@hizollo/games');
 const { bigTwo } = require('../data/GameStrings.json');
-const config = require('../../config');
 
-const {cmdHook} = require("../hooks");
+const { cmdHook } = require('../utils/WebhookManager');
 
 const bigTwoData = new SlashCommandBuilder()
   .setName("bigtwo")
   .setDescription("開啟一場大老二撲克牌遊戲")
   .addUserOption(option =>
     option.setName("p2")
-        .setDescription("玩家2")
+      .setDescription("玩家2")
       .setRequired(true))
   .addUserOption(option =>
     option.setName("p3")
@@ -60,7 +59,7 @@ module.exports = {
         { name: "User ID", value: interaction.user.id },
         { name: "Guild Name", value: interaction.guild.name },
         { name: "Guild ID", value: interaction.guild.id },
-        { name: "Players", value: `${p1.tag}, ${p2.tag}, ${p3.tag}, ${p4.tag}`}
+        { name: "Players", value: `${user.tag}, ${p2.tag}, ${p3.tag}, ${p4.tag}`}
       )
       .setTimestamp()
       .setFooter({ text: "Shard#1" });

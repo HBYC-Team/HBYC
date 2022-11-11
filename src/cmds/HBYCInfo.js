@@ -1,8 +1,7 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
 const { EmbedBuilder, WebhookClient } = require("discord.js");
-const config = require('../../config');
 
-const {cmdHook} = require("../hooks");
+const { cmdHook } = require('../utils/WebhookManager');
 
 const HBYCInfoData = new SlashCommandBuilder()
   .setName("hbycinfo")

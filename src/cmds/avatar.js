@@ -1,8 +1,7 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
-const { EmbedBuilder, WebhookClient } = require('discord.js');
-const config = require('../../config');
+const { EmbedBuilder } = require('discord.js');
 
-const {cmdHook} = require("../hooks");
+const { cmdHook } = require('../utils/WebhookManager');
 
 const avatarData = new SlashCommandBuilder()
   .setName("avatar")
@@ -17,7 +16,7 @@ module.exports = {
   data: avatarData,
   
   async execute(interaction){
-    const getUser = interaction.options.getString('用戶名稱');
+    const getUser = interaction.options.getUser('用戶名稱');
     const member =  getUser ? getUser : interaction.user; 
     const description = getUser ? `<@${interaction.user.id}> ，這是你要查看的頭像：\n ${member.tag} 的頭像` : `<@${interaction.user.id}> ，以下是你的頭像：`;
 

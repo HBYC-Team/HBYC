@@ -1,9 +1,9 @@
-const { SlashCommandBuilder } = require("@discordjs/builders");
-const { Client } = require("@hizollo/osu-api");
-const { EmbedBuilder, WebhookClient } = require("discord.js");
+const { SlashCommandBuilder } = require('@discordjs/builders');
+const { Client } = require('@hizollo/osu-api');
+const { EmbedBuilder } = require('discord.js');
 const config = require('../../config');
 
-const {cmdHook} = require("../hooks");
+const { cmdHook } = require('../utils/WebhookManager');
 
 const osu = new Client({
   apiKey: config.osu.apiKey
@@ -36,7 +36,6 @@ module.exports = {
   data: osuData,
 
   async execute(interaction){
-    if(!config.osu.apiKey) return interaction.reply({ephemeral: true, content: "在配置裏沒有找到osu的apikey。請詢問bot的擁有者，否則本功能將無法使用。"})
     if(interaction.options.getSubcommand() === 'userinfo'){
       const osuUsername = interaction.options.getString("玩家名稱");
 
@@ -50,28 +49,33 @@ module.exports = {
       }
 
       const { 
-        username, pp, rank, country, countryRank, level, accuracy, playcount, 
+        joinDate, level, playcount, pp, rank, country, countryRank, accuracy, totalScore,
         scoreRankCount: { ssh, ss, sh, s, a } 
       } = user;
 
+      const joinDateTimestamp = new Date(joinDate).getTime();
+
       const osuUserEmbed = new EmbedBuilder()
+          .setColor(0xee53c0)
           .setTitle(`玩家 ${osuUsername} 的 osu! 資訊`)
           .addFields(
               { name: "玩家名稱", value: `[${osuUsername}](${user.profileURL()})` },
-              { name: "SS 總計", value: `${ssh + ss}`, inline: true },
+              { name: "加入遊戲日期", value: `<t:${~~(joinDateTimestamp/1000)}>` },
+              { name: "SS 總數", value: `${ssh + ss || 0}`, inline: true },
               { name: "SS+", value: `${ssh || 0}`, inline: true },
               { name: "SS", value: `${ss || 0}`, inline: true },
-              { name: "S 總數", value: `${sh + s}`, inline: true },
+              { name: "S 總數", value: `${sh + s || 0}`, inline: true },
               { name: "S+", value: `${sh || 0}`, inline: true },
               { name: "S", value: `${s || 0}`, inline: true },
-              { name: "A 總數", value: `${a || 0}` },
+              { name: "A", value: `${a || 0}` },
               { name: "等級", value: `${~~(level)}`, inline: true },
               { name: "總遊玩次數", value: `${playcount || 0}`, inline: true },
               { name: "\u200b", value: "\u200b", inline: true },
               { name: "pp", value: `${pp || 0}`, inline: true },
               { name: "世界排名", value: `${rank || "-"}`, inline: true },
               { name: `地區 (${country}) 排名`, value: `${countryRank || "-"}`, inline: true },
-              { name: "打擊準確率", value: `${~~(accuracy*1000)/1000}%` }
+              { name: "分數加總", value:  `${totalScore}`, inline: true },
+              { name: "打擊準確率", value: `${~~(accuracy*1000)/1000}%`, inline: true }
           )
           .setThumbnail(user.avatarURL())
 

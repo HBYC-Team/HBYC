@@ -3,11 +3,11 @@
 ![last_commit](https://img.shields.io/github/last-commit/HBYC-Team/HBYC?style=for-the-badge)
 ![Discord](https://img.shields.io/discord/977204156043509780?style=for-the-badge)
 [![EMU800!!!](../public/images/banner-20221009.jpg)](https://reurl.cc/GxQqdy)
+
 一隻用 JavaScript 寫出來的 Discord 機器人。
 
-
 ## 指令列表
-* `/say` - 強迫機器人說話（使用時請注意我們的[使用者條款](./TeamofService-Tw.md)）。
+* `/say` - 強迫機器人說話（使用時請注意我們的[使用者條款](./TermsofService-Tw.md)）。
 
 * `/tictactoe` - 在 Discord 伺服器中遊玩圈圈叉叉遊戲。
 
@@ -49,11 +49,20 @@ botHookToken=
 reportHookId=
 reportHookToken=
 # 這邊是 webhook 的基本資料，請確認缺項都有填寫正確，否則會產生報錯
+
+osuApiKey=
+# 這邊請填入你的 osu! api v1 的 key ， 如果沒有填入將使有用到 osu!api 的指令無法使用
 ```
 
-填寫完畢之後，請記得執行 `yarn deploy` 進行斜線指令的部署，目前部署設定皆為全域指令，需要等待一段時間才會生效。
+填寫完畢之後，請記得執行 `yarn deploy` 進行斜線指令的部署，若是你的部署為全域指令，需要等待一段時間才會生效。
+
+如果想部署特定伺服器的指令拿來使用抑或是測試，請在 [constants.json](../src/constants.json) 的部份將 `devGuild.id` 修改成你要部署斜線指令的伺服器。
 
 接著即可執行 `yarn start` 讓機器人上線。
+
+請注意，必須要在根目錄執行上述指令才會生效，不照做他會叫我不管。
+
+若想清除指令，可以直接執行[這個檔案](../src/clear.js)或是直接執行 `yarn clear` 進行清除已部署指令的動作。
 
 ## 專案特色
 * 簡易的實用性聊天指令

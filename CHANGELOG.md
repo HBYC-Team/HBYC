@@ -1,6 +1,31 @@
 # HBYC Changelog
 This documentation is a changelog of this repository.
 
+## v3.2.0
+Release Date: 2022-11-11
+
+### Features
+* Added some new info content. ([osu.js](./src/cmds/osu.js)) (5223334)
+
+* Added `/lightsup` game. ([lightsUp.js](./src/cmds/lightsUp.js)) (76a9ca7)
+
+* Added private `/sendann` command. ([supportGuildSendAnn.cjs](./src/cmds/lightsUp.js)) (524e951)
+
+* Added clear commands script. ([clear.js](./src/clear.js)) (b6039b9)
+
+### Changes
+* Added clear script. ([package.json](package.json)) (4263563)
+
+### Fixes
+* Wrong typing in `/avatar` command. ([avatar.js](./src/cmds/avatar.js)) (a92adae)
+
+### Refactors
+* Created webhook object from a new file. ([WebhookManager.js](./src/utils/WebhookManager.js)) (a92adae)
+
+* Import announcement content from a new file. ([lateatUpdate.js](./src/data/latestUpdate.js)) (e697451)
+
+* Replaced `size` and `boardSize` value with `Number.prototype.toString()`  method. (ecf8f3a)
+
 ## v3.1.1
 Release Date: 2022-10-19
 
@@ -10,7 +35,7 @@ Release Date: 2022-10-19
 ### Changes
 * Added develop guild info. ([constants.json](./src/constants.json)) (40cbd92)
 
-* Added some reply when permission denied. ([buttonRole.js](./src/cmds/buttonRole.js)) (725bc20)
+* Added some replies when permission denied. ([buttonRole.js](./src/cmds/buttonRole.js)) (725bc20)
 
 * Log in console when someone interacts the bot, added this for host cloud not to cycling. ([interactionCreate.js](./src/events/interactionCreate.js)) (bcb811c)
 

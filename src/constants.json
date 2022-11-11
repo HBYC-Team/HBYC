@@ -1,34 +1,39 @@
 {
-	"bot": {
-		"name": "HBYC",
-		"version": "v3.1.1",
-		"releaseDate": "2022-10-19",
-		"invite": "https://discord.com/api/oauth2/authorize?client_id=977024737156931675&permissions=1644971949559&scope=bot%20applications.commands"
-	},
-	"links": {
-		"organization": "https://github.com/HBYC-Team/",
-		"source": "https://github.com/HBYC-Team/HBYC",
-		"old_source": "https://github.com/HBYC-Team/HBYC-old",
-		"changeLog": "https://github.com/HBYC-Team/HBYC/tree/master/CHANGELOG.md",
-		"tos_en": "https://github.com/HBYC-Team/HBYC/tree/master/docs/TeamOfService.md",
-		"tos_zh": "https://githubc.om/HBYC-Team/HBYC/tree/master/docs/TeamOfService-Tw.md",
-		"disclaimer": "https://github.com/HBYC-Team/tree/master/docs/disclaimer",
-		"discordTw": "https://discordservers.tw/bots/977024737156931675/"
-	},
-	"supportGuild": {
-		"name": "HBYC Support",
-		"id": "977204156043509780",
-		"invite": "https://discord.gg/J7X2nWXszp",
-		"reportChannelId": "977410935947952138"
-	},
-	"devTeam": {
-		"members": "恐龍#2549, Mantou1233#0001",
-		"programTeam": "恐龍#2549, Mantou1233#0001",
-		"internetTeam": "恐龍#2549",
-		"artTeam": "恐龍#2549"
-	},
-	"devGuild": {
-		"name": "Bot Testing",
-		"id": "915608186654961664"
-	}
+  "bot": {
+    "name": "HBYC",
+    "version": "v3.2.0",
+    "releaseDate": "2022-11-11",
+    "invite": "https://discord.com/api/oauth2/authorize?client_id=977024737156931675&permissions=1644971949559&scope=bot%20applications.commands"
+  },
+  "links": {
+    "organization": "https://github.com/HBYC-Team/",
+    "source": "https://github.com/HBYC-Team/HBYC",
+    "old_source": "https://github.com/HBYC-Team/HBYC-old",
+    "changeLog": "https://github.com/HBYC-Team/HBYC/tree/master/CHANGELOG.md",
+    "tos_en": "https://github.com/HBYC-Team/HBYC/tree/master/docs/TermsOfService.md",
+    "tos_zh": "https://githubc.om/HBYC-Team/HBYC/tree/master/docs/TermsOfService-Tw.md",
+    "disclaimer": "https://github.com/HBYC-Team/tree/master/docs/disclaimer",
+    "discordTw": "https://discordservers.tw/bots/977024737156931675/"
+  },
+  "supportGuild": {
+    "name": "HBYC Support",
+    "id": "977204156043509780",
+    "invite": "https://discord.gg/J7X2nWXszp",
+    "annChannelId": "1007568885400219739",
+    "reportChannelId": "977410935947952138",
+    "roles": {
+      "updateMentionId": "1008683081672179764"
+    }
+  },
+  "devTeam": {
+    "members": "恐龍#2549, Mantou1233#0001",
+    "programTeam": "恐龍#2549, Mantou1233#0001",
+    "internetTeam": "恐龍#2549",
+    "artTeam": "恐龍#2549"
+  },
+  "devGuild": {
+    "name": "Bot Testing",
+    "id": "915608186654961664",
+    "testChannelId": "1027923519788548146"
+  }
 }

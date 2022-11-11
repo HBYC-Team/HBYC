@@ -18,15 +18,15 @@ This is a simple Discord bot, written in JavaScript.
 ## LICENSE
 This repository is under GPL-3.0 License.
 
-See more at [LICENSE](./LICENSE) and [Team Of Service](./docs/TeamOfService.md) documentation.
+See more at [LICENSE](./LICENSE) and [Team Of Service](./docs/TermsOfService.md) documentation.
 
 ## Changelog
 See at [Changelog](./CHANGELOG.md) documentation.
 
 ## Invite this bot
-See the invite link in [constants](./src/constants.json) file.
+You can invite this bot by clicking [here](https://discord.com/api/oauth2/authorize?client_id=977024737156931675&permissions=1644971949559&scope=bot%20applications.commands).
 
 ## Author
 恐龍#2549/dragonyc1002。
 
-If you have any question or problem, you can contact me in [Our Discord Server](https://discord.gg/J7X2nWXszp)。
+If you have any question or problem, you can contact me in [Our Discord Server](https://discord.gg/J7X2nWXszp).

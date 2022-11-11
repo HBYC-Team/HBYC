@@ -1,9 +1,8 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
-const { EmbedBuilder, WebhookClient } = require('discord.js');
+const { EmbedBuilder } = require('discord.js');
 const { presence } = require('../config.json');
-const config = require('../../config');
 
-const {cmdHook} = require("../hooks");
+const { cmdHook } = require('../utils/WebhookManager');
 
 const presenceData = new SlashCommandBuilder()
   .setName("presence")

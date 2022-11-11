@@ -1,7 +1,7 @@
 # HBYC 使用者條款 - 2022-10-09 改版 v2
 此文件為 HBYC Discord 機器人之使用者服務條款，為預防不可預料之事發生，故先設置此條款。
 
-See English Version [here](./TeamOfService.md).
+See English Version [here](./TermsOfService.md).
 
 # 名詞解釋
 * HBYC - 指於 Discord 中名稱及 TAG 為 HBYC#1512 的使用者。
@@ -47,7 +47,7 @@ HBYC 的後台已經經過基本保護，團隊成員**不會**任意外傳任�
 # 外部連結
 使用 `/say` 或 `/echo` 指令發表外部連結，該連結皆不受本條款保護及規範。
 
-## 作者
+## 本條款作者
 恐龍#2549 / Hugo Chen 。
 
 ## 補充

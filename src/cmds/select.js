@@ -1,9 +1,8 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
-const { EmbedBuilder, WebhookClient } = require('discord.js');
+const { EmbedBuilder } = require('discord.js');
 const { selectPrefix } = require('../config.json');
-const config = require('../../config');
 
-const {cmdHook} = require("../hooks");
+const { cmdHook } = require('../utils/WebhookManager');
 
 const selectData = new SlashCommandBuilder()
   .setName("select")
@@ -45,20 +44,7 @@ module.exports = {
     const c4 = interaction.options.getString("選項4");
     const c5 = interaction.options.getString("選項5");
 
-    const choices = [c1, c2];
-
-    if(c3 !== null){
-      choices.push(c3);
-    }
-
-    if(c4 !== null){
-      choices.push(c4);
-    }
-
-    if(c5 !== null){
-      choices.push(c5);
-    }
-
+    const choices = [c1, c2, c3, c4, c5].filter(v => v !== null);
 
     let prefixItem = Math.floor(Math.random()*selectPrefix.length);
     let replyPrefix = selectPrefix[prefixItem];
