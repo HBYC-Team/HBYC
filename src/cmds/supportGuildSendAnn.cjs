@@ -7,7 +7,7 @@ const config = require('../../config');
 const ann = require('../data/latestUpdate');
 
 const updateAnnData = new SlashCommandBuilder()
-  .setName('sendann')
+  .setName('updatechanges')
   .setDescription('更新最新版本的公告')
 
 module.exports = {
