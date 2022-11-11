@@ -20,7 +20,7 @@ for(const file of globalCommandFiles){
   globalCommands.push(command.data.toJSON());
 }
 
-const privateCommandFiles = fs.readdirSync('./src/cmds').filter(file => file.endsWith('.js') || file.endsWith('.cjs'));
+const privateCommandFiles = fs.readdirSync('./src/cmds').filter(file => file.endsWith('.cjs'));
 
 for(const file of privateCommandFiles){
   const command = require(`./cmds/${file}`);
