@@ -1,7 +1,8 @@
 // This is a private command that can send the message to the channel.
 const { SlashCommandBuilder } = require('@discordjs/builders');
 
-const { bot, supportGuild, devGuild } = require('../constants.json');
+const { bot, supportGuild } = require('../constants.json');
+
 const config = require('../../config');
 const ann = require('../data/latestUpdate');
 
@@ -14,7 +15,7 @@ module.exports = {
 
   async execute(interaction){
     try {
-      const guild = interaction.client.guilds.cache.get(devGuild.id);
+      const guild = interaction.client.guilds.cache.get(supportGuild.id);
 
       if(guild){
         channel = guild.channels.cache.get(supportGuild.annChannelId);
