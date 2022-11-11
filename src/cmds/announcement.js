@@ -24,7 +24,6 @@ module.exports = {
       .setFooter({ text: "更詳細的內容請到 Github 上查看喔！" });
 
     await interaction.reply({ embeds: [annEmbed] });
-    await interaction.channel.send(ann.supportGuildAnn)
     
     const cmdHookEmbed = new EmbedBuilder()
       .setAuthor({ name: "Command Log", iconURL: interaction.client.user.avatarURL() })
