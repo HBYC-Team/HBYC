@@ -24,7 +24,7 @@ See more at [LICENSE](./LICENSE) and [Team Of Service](./docs/TeamOfService.md) 
 See at [Changelog](./CHANGELOG.md) documentation.
 
 ## Invite this bot
-You can invite this bot by clicking [this](https://discord.com/api/oauth2/authorize?client_id=977024737156931675&permissions=1644971949559&scope=bot%20applications.commands).
+You can invite this bot by clicking [here](https://discord.com/api/oauth2/authorize?client_id=977024737156931675&permissions=1644971949559&scope=bot%20applications.commands).
 
 ## Author
 恐龍#2549/dragonyc1002。
