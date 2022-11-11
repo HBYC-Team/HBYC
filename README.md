@@ -18,7 +18,7 @@ This is a simple Discord bot, written in JavaScript.
 ## LICENSE
 This repository is under GPL-3.0 License.
 
-See more at [LICENSE](./LICENSE) and [Team Of Service](./docs/TeamOfService.md) documentation.
+See more at [LICENSE](./LICENSE) and [Team Of Service](./docs/TermsOfService.md) documentation.
 
 ## Changelog
 See at [Changelog](./CHANGELOG.md) documentation.

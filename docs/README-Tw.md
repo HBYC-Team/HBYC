@@ -7,7 +7,7 @@
 一隻用 JavaScript 寫出來的 Discord 機器人。
 
 ## 指令列表
-* `/say` - 強迫機器人說話（使用時請注意我們的[使用者條款](./TeamofService-Tw.md)）。
+* `/say` - 強迫機器人說話（使用時請注意我們的[使用者條款](./TermsofService-Tw.md)）。
 
 * `/tictactoe` - 在 Discord 伺服器中遊玩圈圈叉叉遊戲。
 
