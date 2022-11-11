@@ -1,7 +1,7 @@
 # HBYC Help Documentation
-這是一份HBYC機器人的指令說明。
+這是一份 HBYC 機器人的指令說明。
 
-本指令說明適用於版本v3.1.1。
+本指令說明適用於版本 v3.2.0 。
 
 # 指令說明
 以下為指令說明。
@@ -9,9 +9,9 @@
 ## 聊天指令
 * /avatar - 查看一位使用者的頭像。
 
-* /echo - 強迫 HBYC 重複一句你說的話。(使用時請遵守[使用者條款](./TeamofService-Tw.md))
+* /echo - 強迫 HBYC 重複一句你說的話。(使用時請遵守[使用者條款](./TeamOfService-Tw.md))
 
-* /say - 強迫 HBYC 說出一句訊息。（使用時請遵守[使用者條款](./TeamofService-Tw.md))
+* /say - 強迫 HBYC 說出一句訊息。（使用時請遵守[使用者條款](./TeamOfService-Tw.md))
 
 * /info - 查看一位使用者或是伺服器的資訊。
 
