@@ -1,6 +1,6 @@
 {
   "name": "HBYC",
-  "version": "3.1.1",
+  "version": "3.2.0",
   "description": "A simple Discord Bot, written in JavaScript.",
   "main": "src/app.js",
   "author": "HBYC Dev Team",
@@ -12,6 +12,7 @@
     "@hizollo/osu-api": "^1.2.0",
     "discord.js": "^14.5.0",
     "dotenv": "^16.0.3",
+    "https": "^1.0.0",
     "moment": "^2.29.4"
   },
   "engines": {
@@ -19,7 +20,8 @@
   },
   "scripts": {
     "start": "node src/app.js",
-    "deploy": "node src/deploy.js"
+    "deploy": "node src/deploy.js",
+    "clear": "node src/clear.js"
   },
   "repository": "git+https://github.com/HBYC-Team/HBYC",
   "bugs": {
