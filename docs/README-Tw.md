@@ -17,7 +17,7 @@
 
 * `/select` - 讓機器人幫你解決選擇困難症。
 
-HBYC 這隻爛機器人的指令，肯定不只這些，指令列表請查看[協助文件](./help.md)。
+當然，指令肯定不只有這些，關於指令列表請查看[協助文件](./help.md)。
 
 ## 邀請到你的伺服器
 你可以使用[此連結](https://discord.com/api/oauth2/authorize?client_id=977024737156931675&permissions=1644971949559&scope=bot%20applications.commands)邀請 HBYC 到你的伺服器。
@@ -50,8 +50,11 @@ reportHookId=
 reportHookToken=
 # 這邊是 webhook 的基本資料，請確認缺項都有填寫正確，否則會產生報錯
 
+disableOsu=
+# 這邊是填入是否關閉 osu! 相關指令群，賦值以布林值為規範，若要關閉請填寫 true ，不須關閉則本欄位免填
+
 osuApiKey=
-# 這邊請填入你的 osu! api v1 的 key ， 如果沒有填入將使有用到 osu!api 的指令無法使用
+# 這邊請填入你的 osu! api v1 的 key ， 如果沒有填入將使有用到 osu!api 的指令無法使用，若已經將 osu! 指令功能關閉本區可免填
 ```
 
 填寫完畢之後，請記得執行 `yarn deploy` 進行斜線指令的部署，若是你的部署為全域指令，需要等待一段時間才會生效。
