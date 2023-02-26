@@ -13,12 +13,16 @@ if(!process.env.errHookToken) throw new Error('Error Log Webhook token has not b
 if(!process.env.reportHookId) throw new Error('Report Log Webhook id has not been configured.');
 if(!process.env.reportHookToken) throw new Error('Report Log Webhook token has not been configured.');
 
-if(!process.env.osuApiKey) throw new Error('Osu! Api Key has not been configured.');  
+if(process.env.disableOsu && !process.env.osuApiKey) throw new Error('You have enabled osu! command but the api key has not been configured.');
+
+const disableOsu = process.env.disableOsu ? true : false;
+const osuApiKey = process.env.osuApiKey;
 
 module.exports = {
   bot: {
     id: process.env.clientId,
-    token: process.env.TOKEN
+    token: process.env.TOKEN,
+    disableOsu: disableOsu
   },
   cmdHook: {
     id: process.env.cmdHookId,
@@ -41,6 +45,6 @@ module.exports = {
     token: process.env.reportHookToken
   },
   osu: {
-    apiKey: process.env.osuApiKey
+    apiKey: osuApiKey ? osuApiKey : undefined
   }
 }
