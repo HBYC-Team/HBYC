@@ -1,7 +1,7 @@
 const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v10');
 
-const fs = require("fs");
+const fs = require('fs');
 
 const { devGuild }  = require('./constants.json');
 
@@ -10,10 +10,16 @@ const config = require('../config');
 const token = config.bot.token;
 const clientId = config.bot.id;
 
+const disableOsu = config.bot.disableOsu;
+
 const globalCommands = [];
 const privateCommands = [];
 
-const globalCommandFiles = fs.readdirSync('./src/cmds').filter(file => file.endsWith('.js'));
+const fsReadCmdDirSync = fs.readdirSync('./src/cmds');
+
+const globalCommandFiles = disableOsu ? 
+  fsReadCmdDirSync.filter(file => file.endsWith('.js') && !file.includes('osu')) :
+  fsReadCmdDirSync.filter(file => file.endsWith('.js'));
 
 for(const file of globalCommandFiles){
   const command = require(`./cmds/${file}`);
